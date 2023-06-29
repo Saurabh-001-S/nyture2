@@ -1,0 +1,360 @@
+/* ------------>> BUYNOW  <<------------ */
+.buyNow {
+   padding: 2rem 4rem;
+}
+
+.buyNow_body {
+   justify-content: space-between;
+}
+
+/* ------------>> BUYNOW HEAD  <<------------ */
+
+.buyNow_head {
+   padding: 0 0 2rem 0;
+}
+
+.buyNow_head-heading h1 {
+   font-size: 45px;
+   line-height: 50px;
+   font-weight: 500;
+}
+
+/* ------------>> BUYNOW BODY -> LEFT  <<------------ */
+.buyNow_body-left {
+   gap: 1.5rem !important;
+   width: 60%;
+}
+
+
+/* ------------>> BUYNOW BODY -> LEFT -> INFO  <<------------ */
+
+.buyNow_info {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   width: 80%;
+}
+
+.buyNow_login,
+.buyNow_address {
+   border: 2px solid var(--border-color);
+   padding: 1rem;
+   border-radius: 10px;
+}
+
+.buyNow_login_head {
+   display: flex;
+   flex-direction: column;
+   gap: 0.6rem;
+}
+
+.buyNow_login_head p {
+   color: var(--bg-color);
+   font-weight: 700;
+}
+
+.buyNow_login-info h3,
+.buyNow_address-info h3 {
+   font-size: 20px;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-style: italic;
+   font-weight: 500;
+}
+
+/* ------------>> BUYNOW BODY -> LEFT -> PayMent  <<------------ */
+
+.buyNow_payment {
+   width: 100%;
+}
+
+/* .buyNow_payment, */
+.buyNow_payment-methods {
+   gap: 1rem !important;
+   width: 100%;
+}
+
+.payment_DebitCard,
+.payment_NetBanking,
+.payment_Onlinepay {
+   width: 100%;
+}
+
+.payment-option {
+   align-items: center !important;
+   justify-content: flex-start;
+}
+
+.payment-option input {
+   width: 23px;
+   height: 23px;
+   outline: none;
+}
+
+.payment_Icon_head {
+   align-items: center !important;
+   justify-content: center;
+
+}
+
+.payment_Icon {
+   border: 2px solid var(--border-color);
+   border-radius: 15px;
+   padding: 0.5rem;
+}
+
+.payment_heading {
+   font-size: 24px;
+   font-style: oblique;
+   padding: 0 0.5rem;
+}
+
+
+/* ------------>> BUYNOW ITEM DETAILS RIGHT <<------------ */
+.buyNow_body-right {
+   padding: 1.3rem;
+   border-radius: 8px;
+   box-shadow: 1px 0px 6px -2px var(--bg-color-2);
+   width: 40%;
+}
+
+.buyNow_item {
+   width: 100%;
+}
+
+.buyItem {
+   padding: 0.5rem 0;
+   width: 100%;
+   border-bottom: 1px solid var(--border-color);
+   justify-content: space-between;
+}
+
+.buyItem_img {
+   width: 40%;
+   height: 200px;
+   align-items: center !important;
+   border-radius: 10px;
+}
+
+.buyItem_img img {
+   width: 90%;
+   height: 90%;
+   border-radius: 10px;
+   object-fit: contain;
+}
+
+.buyItem_details {
+   height: 190px;
+   gap: 1rem !important;
+   width: 55%;
+}
+
+.detail_h3 {
+   font-size: 18px;
+   line-height: 17px;
+   color: var(--dark-blue);
+
+}
+
+.buyNow_delivery {
+   width: 100%;
+   padding: 0 0.5rem;
+   justify-content: space-between;
+   font-size: 18px;
+}
+
+.buyNow_total {
+   width: 100%;
+   justify-content: space-between;
+   background: var(--item-bg);
+   padding: 1rem 0.5rem;
+   border-radius: 10px;
+   margin: 1rem 0;
+}
+
+
+/* ------------>> TOGGLE SECTION <<------------ */
+.payment_toggle {
+   padding: 1rem 2rem;
+   width: 80%;
+}
+
+.details_name {
+   padding: 0.5rem 0;
+}
+
+label,
+.card_Date p {
+   font-size: 19px;
+   font-style: oblique;
+}
+
+form input {
+   width: 80%;
+   font-size: 20px;
+   padding: 0.4rem;
+   border: none;
+   border-bottom: 2px solid var(--border-color);
+}
+
+input:focus {
+   outline: none;
+}
+
+.card_Date-months {
+   border: 2px solid var(--border-color);
+   padding: 0.5rem;
+   display: flex;
+   gap: 0.8rem;
+   border-radius: 10px;
+}
+
+.card_Date-months select,
+.details_name select {
+   background: none;
+   border: none;
+   font-size: 18px;
+}
+
+.confirm_button {
+   width: fit-content;
+   margin: 1rem 0;
+}
+
+.confirm_button button {
+   padding: 1rem;
+   font-size: 20px;
+   background: var(--bg-color-2);
+   font-style: normal;
+   color: var(--item-bg);
+}
+
+.confirm_button button:hover {
+   color: var(--bg-color-2);
+   background: var(--item-bg);
+}
+
+.details_name .label_border {
+   border: 2px solid var(--border-color);
+   padding: 0.5rem;
+   border-radius: 10px;
+}
+
+.netBanking_bank {
+   width: 100%;
+   margin: 1rem 0 0 0;
+   padding: 1rem 0.5rem;
+}
+
+.bank {
+   justify-content: center;
+   align-items: center !important;
+   width: 90px;
+}
+
+.bank img {
+   width: 50px;
+   height: 50px;
+   object-fit: cover;
+}
+
+.bank p {
+   font-style: oblique;
+   font-variant: small-caps;
+}
+
+/* ------------>> UTILITY CLASSES <<------------ */
+.flex-col {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 0.52rem;
+}
+
+.flex-row {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   gap: 0.52rem;
+}
+
+.p-fade {
+   color: var(--bg-color);
+   font-weight: 600;
+}
+
+/* ------------>> Responsive  <<------------ */
+@media screen and (max-width:1050px) {
+   .buyNow_body {
+      flex-wrap: wrap-reverse;
+      justify-content: center;
+   }
+
+   .buyNow_body-left {
+      width: 100%;
+   }
+
+   .buyNow_body-right {
+      width: 80%;
+   }
+
+   .buyNow_info {
+      margin: auto;
+   }
+
+   .buyNow_heading {
+      margin: auto;
+   }
+
+   .buyNow_payment-methods {
+      width: max-content;
+      margin: auto;
+   }
+}
+
+@media screen and (max-width:750px) {
+   .buyNow {
+      padding: 1rem 2rem;
+   }
+
+   .buyNow_login-info,
+   .buyNow_address-info {
+      flex-direction: column;
+   }
+
+   .buyNow_head-heading h1 {
+      font-size: 35px;
+      line-height: 40px;
+      width: fit-content;
+      margin: auto;
+   }
+
+   .netBanking_bank {
+      flex-wrap: wrap;
+      width: 76%;
+      justify-content: center;
+   }
+}
+
+@media screen and (max-width:480px) {
+   .buyNow {
+      padding: 1rem 0.5rem;
+   }
+
+   .details_card {
+      flex-direction: column;
+   }
+
+   .payment_heading {
+      font-size: 20px;
+   }
+
+   .netBanking_bank {
+      width: 70%;
+   }
+
+   .wrap {
+      word-break: break-word;
+      width: 220px;
+   }
+}

@@ -1,0 +1,137 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 5rem;
+  background: var(--item-bg);
+  margin-bottom: 0.5rem;
+}
+
+.contact_heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact_navigation {
+  padding: 1rem 0 0 1rem;
+  font-size: 14px;
+  color: #878787;
+  cursor: pointer;
+}
+
+.contact_bottom {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact_bottom_left {
+  display: flex;
+  flex-direction: column;
+  max-height: 560px;
+  overflow-y: scroll;
+  min-width: 20%;
+}
+
+.contact_left-sidebar_top {
+  border-bottom: 1px solid gray;
+}
+
+.contact_left-sidebar_top,
+.contact_left-sidebar_bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white-color);
+  padding: 0.8rem 0 0;
+  font-size: 15px;
+}
+
+.contact_left-sidebar_top span,
+.contact_left-sidebar_bottom span {
+  word-wrap: normal;
+}
+
+.contact_left-sidebar_top ul li,
+.contact_left-sidebar_bottom ul li {
+  padding: 13px 48px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.contact_left-sidebar_top ul li:hover,
+.contact_left-sidebar_bottom ul li:hover {
+  background: #f5faff;
+  color: #2874f0;
+}
+
+.contact_right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 80%;
+}
+
+.contact_right-bottom {
+  background: var(--white-color);
+  padding-left: 1.18rem;
+  padding-right: 1.18rem;
+  margin-bottom: 0.5rem;
+}
+
+.Rbottom_heading {
+  color: #212121;
+  font-size: 18px;
+  margin: 4px 0;
+  padding: 1rem 0 0.5rem 0;
+}
+
+.Rbottom_section {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  margin: 0 -16px;
+  border-bottom: 2px solid #f9f9f9;
+  cursor: pointer;
+  background: transparent;
+}
+
+.Rbottom_section:hover {
+  background: #f5faff;
+}
+
+.section_text {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.section_text_primary {
+  color: #212121;
+  font-size: 14px;
+}
+
+.section_text_secondary {
+  color: #878787;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.Rbottom_section svg {
+  margin-left: auto;
+}
+
+/* .rotatesvg {
+  transform: rotate(90deg);
+} */
+
+.contact_right-bottom button {
+  background-color: transparent;
+  cursor: pointer;
+}

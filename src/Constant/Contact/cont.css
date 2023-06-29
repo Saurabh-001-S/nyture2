@@ -1,0 +1,54 @@
+.Bottom_section-bg {
+  background: #e8ecfb;
+}
+
+
+.section {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 13px;
+  margin: 0 -13px;
+  border-bottom: 2px solid #f9f9f9;
+  cursor: pointer;
+}
+
+.Rbottom_sectiont:hover {
+  background: #f5faff;
+}
+
+.section_text {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.text_primary {
+  color: #212121;
+  font-size: 16px;
+}
+
+.text_secondary {
+  font-size: 14px;
+}
+
+.Rbottom_section svg {
+  margin-left: auto;
+}
+
+.section_toggle {
+  padding: 1rem 0;
+  margin-left: 1rem;
+}
+
+.section_toggle ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section_toggle ul li {
+  font-size: 16px;
+  line-height: 15px;
+}
