@@ -1,0 +1,140 @@
+.navbar nav {
+      display: flex;
+      padding: 0 1rem;
+      align-items: center;
+      justify-content: space-between;
+}
+
+.navbar_left {
+      display: flex;
+      justify-content: flex-start;
+      padding: 1rem 2rem;
+      color: var(--black-color);
+      font-size: 40px;
+}
+
+.navbar_mid ul {
+      display: flex;
+      gap: 5rem;
+      font-size: 20px;
+      justify-content: center;
+}
+
+.navbar_right {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+}
+
+.cartItem {
+      position: relative;
+      top: 3px;
+      right: 17px;
+      color: red;
+      font-weight: 700;
+}
+
+.navbar_toggleMenu {
+      display: none;
+}
+
+.navbar_toggleMenu>svg {
+      margin-right: 1rem;
+}
+
+.navbar_toggleMenu-overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100vh;
+      transition: 0.8s ease;
+
+      display: flex;
+      background: #f7f6f6;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 1rem;
+}
+
+.navbar_toggleMenu .overlay__close {
+      cursor: pointer;
+      position: absolute;
+      top: 24px;
+      right: 30px;
+}
+
+.navbar_toggleMenu-links {
+      display: flex;
+      cursor: pointer;
+      color: var(--color-white);
+      font-size: 1.5rem;
+      text-align: center;
+
+      font-family: var(--text-font);
+      flex-direction: column;
+      margin: 0 auto;
+      gap: 1.5rem;
+}
+
+.navbar_toggleMenu-links a {
+      margin: 0;
+}
+
+.navbar_toggleMenu-links li:hover {
+      color: var(--color-white);
+}
+
+@media screen and (max-width: 1150px) {
+
+      .navbar_mid,
+      .navbar_togglemenu_right {
+            display: none;
+      }
+
+      .navbar_toggleMenu {
+            display: flex;
+      }
+}
+
+@media screen and (max-width: 750px) {
+      .navbar_togglemenu_right {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 1rem;
+            width: 100%;
+      }
+
+      .navbar_right {
+            display: none;
+      }
+}
+
+@media screen and (max-width: 270px) {
+      .navbar_left {
+            padding: 1.2rem 0;
+            font-size: 35px;
+      }
+
+      .navbar_toggleMenu .overlay__close {
+            right: 0;
+      }
+}
+
+.slide-bottom {
+      animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-bottom {
+      0% {
+            transform: translateX(50%);
+            opacity: 0.1;
+      }
+
+      100% {
+            transform: translateY(0);
+            opacity: 1;
+      }
+}
