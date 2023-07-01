@@ -105,10 +105,16 @@
             justify-content: center;
             padding-bottom: 1rem;
             width: 100%;
+            flex-wrap: wrap;
       }
 
       .navbar_right {
             display: none;
+      }
+
+      .navbar_left {
+            padding: 1.5rem 0;
+            font-size: 30px;
       }
 }
 
