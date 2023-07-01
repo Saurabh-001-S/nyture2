@@ -1,5 +1,5 @@
 import './App.css';
-import { Navbar, Footer, Shop, ShoppingCart, Home, BuyNow, Contact } from "./Components/index";
+import { Navbar, Footer, Shop, ShoppingCart, Home, BuyNow, Contact, Account } from "./Components/index";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
                <Route exact path='/shopCart' element={<ShoppingCart />} />
                <Route exact path='/buy' element={<BuyNow />} />
                <Route exact path='/contact' element={<Contact />} />
+               <Route exact path='/userinfo' element={<Account />} />
             </Routes>
             <Footer />
          </div>
