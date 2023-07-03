@@ -1,7 +1,6 @@
 import './App.css';
 import { Navbar, Footer, Shop, ShoppingCart, Home, BuyNow, Contact, Account } from "./Components/index";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 function App() {
    return (
       <Router>
@@ -14,6 +13,7 @@ function App() {
                <Route exact path='/buy' element={<BuyNow />} />
                <Route exact path='/contact' element={<Contact />} />
                <Route exact path='/userinfo' element={<Account />} />
+               {/* <Route exact path='/pages' element={<Notification />} /> */}
             </Routes>
             <Footer />
          </div>
