@@ -95,7 +95,6 @@ const BuyNow = () => {
     }
   }
 
-
   return (
     <div className='buyNow' id='buy'>
       <div className="buyNow_head">
@@ -104,7 +103,6 @@ const BuyNow = () => {
         </div>
       </div>
       <div className="buyNow_body flex-row">
-
         <div className="buyNow_body-left flex-col">
           <div className="buyNow_info">
             <div className="buyNow_login">
@@ -147,14 +145,15 @@ const BuyNow = () => {
                   <div className="payment_toggle">
                     <form onSubmit={handleSubmit}>
                       <div className="details_name flex-col">
-                        <label htmlFor="name">Card Holder Name*</label>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                        <label htmlFor="name">Card Holder Name*</label>
                       </div>
                       <div className="details_name flex-col">
+                        <input type="text" value={CardNo} onChange={(e) => setCardNo(e.target.value)}
+                          maxlength="12" size="10" required />
                         <label htmlFor="name">Card Number*</label>
-                        <input type="text" value={CardNo} onChange={(e) => setCardNo(e.target.value)} required />
                       </div>
-                      <div className="details_card flex-row">
+                      <div className="details_card flex-row" style={{ marginTop: "1rem" }}>
                         <div className="card_Date flex-col">
                           <p htmlFor="date">Valid Date</p>
                           <div className="card_Date-months">
@@ -162,9 +161,10 @@ const BuyNow = () => {
                             <label>  <select value={year} onChange={(e) => setYear(e.target.value)}> {renderYearOptions()}</select></label>
                           </div>
                         </div>
-                        <div className="card cvv flex-col">
+                        <div className="card details_name cvv flex-col">
+                          <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)}
+                            maxlength="3" size="10" required />
                           <label>CVV *</label>
-                          <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)} required />
                         </div>
                       </div>
                       <div className="confirm_button">
@@ -221,14 +221,15 @@ const BuyNow = () => {
                   <div className="payment_toggle">
                     <form onSubmit={handleSubmit}>
                       <div className="details_name flex-col">
-                        <label htmlFor="name">Enter Card Holder Name*</label>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                        <label htmlFor="name">Enter Card Holder Name*</label>
                       </div>
                       <div className="details_name flex-col">
+                        <input type="text" value={CardNo} onChange={(e) => setCardNo(e.target.value)}
+                          maxlength="12" size="10" required />
                         <label htmlFor="number">Enter Card Number*</label>
-                        <input type="text" value={CardNo} onChange={(e) => setCardNo(e.target.value)} required />
                       </div>
-                      <div className="details_card flex-row">
+                      <div className="details_card flex-row" style={{ marginTop: "1rem" }}>
                         <div className="card_Date flex-col">
                           <p >Valid Date</p>
                           <div className="card_Date-months">
@@ -236,9 +237,10 @@ const BuyNow = () => {
                             <label>  <select value={year} onChange={(e) => setYear(e.target.value)}> {renderYearOptions()}</select></label>
                           </div>
                         </div>
-                        <div className="card cvv flex-col">
+                        <div className="card details_name cvv flex-col">
+                          <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)}
+                            maxlength="3" size="10" required />
                           <label>CVV* </label>
-                          <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)} required />
                         </div>
                       </div>
                       <div className="confirm_button">
@@ -263,20 +265,19 @@ const BuyNow = () => {
                 </div>
                 {toggleSection.onlinePay && (
                   <div className="payment_toggle">
-                    <form onSubmit={handleSubmit} className='flex-col'>
+                    <form onSubmit={handleSubmit} >
                       <div className="details_name flex-col">
-                        <label htmlFor="name">Enter Name*</label>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                        <label htmlFor="name">Enter Name*</label>
                       </div>
                       <div className="details_name flex-col">
-                        <label htmlFor="upi">Enter UPI*</label>
                         <input type="text" value={CardNo} onChange={(e) => setCardNo(e.target.value)} required />
+                        <label htmlFor="upi">Enter UPI*</label>
                       </div>
-                      <div className="details_name flex-col">
+                      <div className="selection flex-col" style={{ marginTop: "1rem" }}>
                         <label htmlFor="upi">Enter Pay App*</label>
                         <label className='label_border'><select value={year} onChange={(e) => setYear(e.target.value)}> {renderPayOptions()}</select></label>
                       </div>
-
                       <div className="confirm_button">
                         <button type="submit">Pay ${total()}</button>
                       </div>

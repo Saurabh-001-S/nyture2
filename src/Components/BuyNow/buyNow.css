@@ -174,12 +174,32 @@
 
 /* ------------>> TOGGLE SECTION <<------------ */
 .payment_toggle {
-   padding: 1rem 2rem;
+   padding: 1rem 0 0 2rem;
    width: 80%;
 }
 
 .details_name {
    padding: 0.5rem 0;
+   position: relative;
+   height: 60px;
+   margin: 1rem 0 0 0;
+}
+
+.details_name label {
+   position: absolute;
+   top: 50%;
+   left: 5px;
+   transform: translateY(-50%);
+   font-size: 1.3rem;
+   color: #162938;
+   font-weight: 500;
+   pointer-events: none;
+   transition: 0.5s;
+}
+
+.details_name input:focus~label,
+.details_name input:valid~label {
+   top: -5px;
 }
 
 label,
@@ -188,8 +208,9 @@ label,
    font-style: oblique;
 }
 
+
 form input {
-   width: 80%;
+   width: 90%;
    font-size: 20px;
    padding: 0.4rem;
    border: none;
@@ -198,6 +219,10 @@ form input {
 
 input:focus {
    outline: none;
+}
+
+.cvv input {
+   width: 70%;
 }
 
 .card_Date-months {
@@ -209,6 +234,7 @@ input:focus {
 }
 
 .card_Date-months select,
+.selection select,
 .details_name select {
    background: none;
    border: none;
@@ -233,7 +259,8 @@ input:focus {
    background: var(--item-bg);
 }
 
-.details_name .label_border {
+.details_name .label_border,
+.selection .label_border {
    border: 2px solid var(--border-color);
    padding: 0.5rem;
    border-radius: 10px;

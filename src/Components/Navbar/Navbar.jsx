@@ -34,8 +34,8 @@ const Navbar = () => {
         <div className="navbar_mid">
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/pages">Pages</Link></li>
             <li><Link to="/shop">Shop</Link></li>
+            <li><Link to="/login">Login</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
@@ -63,8 +63,8 @@ const Navbar = () => {
               </div>
               <ul className='navbar_toggleMenu-links'>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/pages">Pages</Link></li>
                 <li><Link to="/shop">Shop</Link></li>
+                <li><Link to="/login">Login</Link></li>
                 <li><Link to="/contact">Contact Us</Link></li>
               </ul>
             </div>
