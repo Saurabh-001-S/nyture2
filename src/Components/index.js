@@ -6,6 +6,7 @@ import Navbar from "./Navbar/Navbar";
 import Shop from "./Shop/Shop";
 import ShoppingCart from "./ShopCart/ShoppingCart";
 import Account from "./Account/Account";
+import Login from "./Login/Login";
 
 export {
       Account,
@@ -13,6 +14,7 @@ export {
       Contact,
       Footer,
       Home,
+      Login,
       Navbar,
       Shop,
       ShoppingCart

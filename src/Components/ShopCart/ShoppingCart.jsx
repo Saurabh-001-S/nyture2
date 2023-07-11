@@ -15,6 +15,11 @@ const ShoppingCart = () => {
     dispatch(getCartTotal());
   }, [cart]);
 
+  const confirm = () => {
+    if (window.confirm("Are you sure want to remove all items from shopping cart")) {
+      dispatch(clearCart(items))
+    }
+  }
   const amount = totalPrice;
   const isFreeDelivery = amount > 400;
   return (
@@ -22,7 +27,7 @@ const ShoppingCart = () => {
       <div className="shopCart_left">
         <div className="shopCart_heading">
           <h1>Shopping Cart</h1>
-          <button onClick={() => dispatch(clearCart(items))}>Deselect all items</button>
+          <button onClick={confirm}>Deselect all items</button>
           <p>Price</p>
         </div>
         <div className="shopCart_item">

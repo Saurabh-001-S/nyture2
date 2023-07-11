@@ -22,10 +22,11 @@
       margin-bottom: 0.5rem;
 }
 
-.item_img img {
+.item_img .img {
       width: 98%;
       height: 98%;
       object-fit: scale-down;
+      object-position: center;
 }
 
 .item_detail {

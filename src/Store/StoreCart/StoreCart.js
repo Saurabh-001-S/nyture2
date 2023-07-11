@@ -4,10 +4,37 @@ import productData from '../../Data/ItemData';
 const initialCart = {
   cart: [],
   buyItem: [],
+  notification: [],
   item: productData,
   totalQuantity: 0,
   totalPrice: 0
 }
+const Message_props = [
+  {
+    id: 1,
+    type: "success",
+    title: "Item Added To Shopping Cart",
+    backgroundColor: "#5cb85c"
+  },
+  {
+    id: 2,
+    type: "danger",
+    title: "Item Deleted From Cart",
+    backgroundColor: "#d9534f"
+  },
+  {
+    id: 3,
+    type: "info",
+    title: "Order Successfully Order",
+    backgroundColor: "#5bc0de"
+  },
+  {
+    id: 4,
+    type: "warning",
+    title: "Removed all Items from Shopping Cart",
+    backgroundColor: "#f0ad4e"
+  }
+];
 
 const cartSlice = createSlice({
   name: "cart",
@@ -20,6 +47,8 @@ const cartSlice = createSlice({
         state.cart[find].quantity += 1;
       } else {
         state.cart.push(action.payload)
+        state.totalQuantity += 1;
+        state.notification.push(Message_props[0])
       }
     },
 
@@ -69,6 +98,7 @@ const cartSlice = createSlice({
       state.cart = [];
       state.totalQuantity = 0;
       state.totalPrice = 0;
+      state.notification.push(Message_props[3])
     },
     clearBuy: (state) => {
       state.buyItem = [];
@@ -94,16 +124,20 @@ const cartSlice = createSlice({
 
     removeFromCart: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload);
+      state.notification.push(Message_props[1])
     },
 
     removeFromBuy: (state, action) => {
       state.buyItem = state.buyItem.filter((item) => item.id !== action.payload);
     },
+    removeFromNotification: (state) => {
+      state.notification = [];
+    }
 
   },
 });
 export const {
   addToCart, increaseItemQuantity, decreaseItemQuantity, removeFromCart,
-  clearCart, buyNow, getCartTotal, removeFromBuy, buyAllCartItem, clearBuy
+  clearCart, buyNow, getCartTotal, removeFromBuy, buyAllCartItem, clearBuy, removeFromNotification
 } = cartSlice.actions;
 export default cartSlice.reducer;
