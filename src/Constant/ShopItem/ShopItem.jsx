@@ -1,16 +1,16 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { addToCart, buyNow } from '../../Store/StoreCart/StoreCart';
-
-import './shopitem.css';
 import { Link } from 'react-router-dom';
+import './shopitem.css';
 const ShopItem = ({ item }) => {
   const dispatch = useDispatch();
+  const handleImageLoad = () => { return; };
   return (
     <li className='shopItem'>
       <div className='shopItem_det'>
-        <div className="item_img">
-          <img src={item.img} alt="image" />
+        <div className="item_img" >
+          <img src={item.img} id='imgload' className='img' alt="image" onLoad={handleImageLoad} />
         </div>
         <div className="item_detail">
           <h1>{item.name}</h1>
@@ -26,5 +26,4 @@ const ShopItem = ({ item }) => {
     </li>
   )
 }
-
 export default ShopItem

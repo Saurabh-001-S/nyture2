@@ -1,0 +1,138 @@
+.search {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+   padding: 1rem 0.5rem;
+   margin: auto;
+   width: fit-content;
+}
+
+.search_box form {
+   display: flex;
+   gap: 0.5rem;
+}
+
+.search_box {
+   width: 600px;
+   margin: auto;
+}
+
+.result_container {
+   width: fit-content;
+   justify-content: flex-start;
+   margin: auto;
+}
+
+.search_result_item_container {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   gap: 1rem;
+   justify-content: center;
+   align-items: center;
+   margin: auto;
+   padding: 1.5rem 0;
+}
+
+.search_btn {
+   background-color: var(--item-bg);
+   color: var(--dark-blue);
+   font-size: 18px;
+   border-bottom: 2px solid var(--border-color);
+   border-radius: 10px;
+}
+
+.search_btn:hover {
+   color: var(--dark-blue);
+}
+
+.search_category {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   margin-top: 1rem;
+   align-items: flex-start;
+   justify-content: flex-start;
+}
+
+
+.search-text {
+   display: flex;
+   gap: 1rem;
+   justify-content: center;
+   align-items: center;
+   padding: 1rem;
+}
+
+.search-text li {
+   border-bottom: 2px solid var(--border-color);
+   padding: 0;
+   margin: 0;
+   border-radius: 10px;
+}
+
+.search-text-btn {
+   background-color: transparent;
+   color: var(--dark-blue);
+   padding: 0.5rem !important;
+   margin: 0 !important;
+}
+
+.search-text-btn:hover,
+.search-text li:hover {
+   border-color: var(--dark-blue);
+   color: var(--dark-blue);
+   cursor: pointer;
+}
+
+@media screen and (max-width:1100px) {
+   .search_result_item_container {
+      grid-template-columns: repeat(4, 1fr);
+      padding: 1rem 0;
+   }
+}
+
+@media screen and (max-width:850px) {
+   .search_result_item_container {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0.7rem 0;
+   }
+
+}
+
+@media screen and (max-width:650px) {
+   .search_result_item_container {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0.7rem 0;
+   }
+
+   .search_box {
+      width: max-content;
+      margin: auto;
+   }
+}
+
+@media screen and (max-width:450px) {
+   .search_result_item_container {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 0.7rem 0;
+   }
+
+   .search_box form {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .search_box form input {
+      width: 80vw;
+   }
+
+   .search_btn {
+      width: 50vw;
+   }
+
+   .search-text {
+      width: 80vw;
+      flex-wrap: wrap;
+   }
+}

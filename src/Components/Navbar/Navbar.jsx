@@ -15,10 +15,10 @@ const Navbar = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (notification.length === 1) {
+      if (notification.length >= 1) {
         dispatch(removeFromNotification());
       }
-    }, 700);
+    }, 1500);
 
     return () => {
       clearInterval(interval);
@@ -73,10 +73,8 @@ const Navbar = () => {
       </nav>
       <div className='notification-container top-right'>
         {notification.map((toast, i) => (
-          <div key={i} className="notification toast top-right" style={{ backgroundColor: toast.backgroundColor }}>
-            <div style={{ display: 'flex', gap: '0.2rem' }}>
-              <p className="notification-title">{toast.title}</p>
-            </div>
+          <div key={i} className="notification top-right" style={{ backgroundColor: toast.backgroundColor }}>
+            <p className="notification-title">{toast.title}</p>
           </div>
         ))}
       </div>
