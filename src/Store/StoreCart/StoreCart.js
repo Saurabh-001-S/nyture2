@@ -32,7 +32,31 @@ const Message_props = [
     id: 4,
     type: "warning",
     title: "Removed all Items from Shopping Cart",
-    backgroundColor: "#f0ad4e"
+    backgroundColor: "#ff0000c9"
+  },
+  {
+    id: 5,
+    type: "warning",
+    title: "Please enter text in search box",
+    backgroundColor: "#ff0000c9"
+  },
+  {
+    id: 6,
+    type: "warning",
+    title: "Please enter another email it already registered",
+    backgroundColor: "#ff0000c9"
+  },
+  {
+    id: 7,
+    type: "success",
+    title: "Login succcessfully",
+    backgroundColor: "#5cb85c"
+  },
+  {
+    id: 8,
+    type: "success",
+    title: "Register successfully",
+    backgroundColor: "#5cb85c"
   }
 ];
 
@@ -131,13 +155,16 @@ const cartSlice = createSlice({
       state.buyItem = state.buyItem.filter((item) => item.id !== action.payload);
     },
     removeFromNotification: (state) => {
-      state.notification = [];
+      state.notification.shift();
+    },
+    callNotification: (state, action) => {
+      state.notification.push(Message_props[action.payload])
     }
-
   },
 });
 export const {
   addToCart, increaseItemQuantity, decreaseItemQuantity, removeFromCart,
-  clearCart, buyNow, getCartTotal, removeFromBuy, buyAllCartItem, clearBuy, removeFromNotification
+  clearCart, buyNow, getCartTotal, removeFromBuy, buyAllCartItem, clearBuy,
+  removeFromNotification, callNotification
 } = cartSlice.actions;
 export default cartSlice.reducer;

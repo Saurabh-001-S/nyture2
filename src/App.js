@@ -1,8 +1,8 @@
 import './App.css';
-import { Navbar, Footer, Shop, ShoppingCart, Home, BuyNow, Contact, Account, Login } from "./Components/index";
+import { Navbar, Footer, Shop, ShoppingCart, Home, BuyNow, Contact, Account, Login, Search } from "./Components/index";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
-   console.log = () => { }
+   // console.log = () => { }
    return (
       <Router>
          <div className="App">
@@ -15,6 +15,7 @@ function App() {
                <Route exact path='/contact' element={<Contact />} />
                <Route exact path='/userinfo' element={<Account />} />
                <Route exact path='/login' element={<Login />} />
+               <Route exact path='/search' element={<Search />} />
             </Routes>
             <Footer />
          </div>

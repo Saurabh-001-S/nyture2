@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { AiOutlineInstagram } from "react-icons/ai";
@@ -24,7 +24,7 @@ const Home = () => {
       const dispatch = useDispatch();
 
       const [playVideo, setPlayVideo] = useState(false)
-      const vidRef = React.useRef();
+      const vidRef = useRef();
       const handlevideo = () => {
             setPlayVideo((prevPlayVideo) => !prevPlayVideo)
             if (playVideo) {
