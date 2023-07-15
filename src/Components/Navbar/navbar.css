@@ -130,13 +130,13 @@
   }
 }
 
-.slide_navbar_outside {
-  animation: slide-outside 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both alternate;
+.slide-bottom {
+  animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-@keyframes slide-outside {
+@keyframes slide-bottom {
   0% {
-    transform: translateX(110%);
+    transform: translateX(50%);
     opacity: 0.1;
   }
 
@@ -151,13 +151,14 @@
   box-sizing: border-box;
   position: fixed;
   z-index: 999999;
+  padding-top: 2.5rem;
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
 }
 
 .top-right {
-  top: 60px;
+  top: 12px;
   right: 12px;
   transition: transform 0.3s ease-in-out;
   animation: toast-in-right 0.4s;
