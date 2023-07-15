@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { LoginSetion, SignUpPage } from "../../Constant/index";
 import './login.css';
 
 const Login = () => {
