@@ -4,6 +4,8 @@ import ImageSlider from "./ImageSlide/ImageSlider";
 import BuyItem from "./BuyItem/BuyItem";
 import MainContact from "./Contact/MainContact";
 import QuesContact from "./Contact/QuesContact";
+import LoginSetion from "./AuthPage/LoginSetion";
+import SignUpPage from "./AuthPage/SignUpPage";
 
 export {
       BuyItem,
@@ -11,5 +13,7 @@ export {
       MainContact,
       QuesContact,
       ShopCartItem,
-      ShopItem
+      ShopItem,
+      SignUpPage,
+      LoginSetion
 }

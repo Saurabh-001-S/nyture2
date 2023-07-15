@@ -294,60 +294,7 @@ export default {
       quantity: 1
     },
   ],
-  Tables: [
-    //       { 
-    //             id: 1,
-    //             name: 'Table',
-    //             price: 200,
-    //             description: 'A nice table'
-    //       },
-    //       {
-    //             id: 2,
-    //             name: 'Table',
-    //             price: 200,
-    //             description: 'A nice table'
-    //       },
-    //       {
-    //             id: 3,
-    //             name: 'Table',
-    //             price: 200,
-    //             description: 'A nice table'
-    //       },
-    //       {
-    //             id: 4,
-    //             name: 'Table',
-    //             price: 200,
-    //             description: 'A nice table'
-    //       }
-  ],
-  almari: [
-    //       {
-    //             id: 1,
-    //             name: 'almari',
-    //             price: 200,
-    //             description: 'A nice almari'
-    //       },
-    //       {
-    //             id: 2,
-    //             name: 'almari',
-    //             price: 200,
-    //             description: 'A nice almari'
-    //       },
-    //       {
-    //             id: 3,
-    //             name: 'almari',
-    //             price: 200,
-    //             description: 'A nice almari'
-    //       },
-    //       {
-    //             id: 4,
-    //             name: 'almari',
-    //             price: 200,
-    //             description: 'A nice almari'
-    //       },
-  ],
   recommendation: [
-
     {
       id: 102,
       name: 'Sloopy - Armchair',
@@ -456,6 +403,56 @@ export default {
     },
   ]
 }
-// export default {
-//       chair, sofa, Tables, stool, almari
-// }
+
+// Tables: [
+  //       { 
+  //             id: 1,
+  //             name: 'Table',
+  //             price: 200,
+  //             description: 'A nice table'
+  //       },
+  //       {
+  //             id: 2,
+  //             name: 'Table',
+  //             price: 200,
+  //             description: 'A nice table'
+  //       },
+  //       {
+  //             id: 3,
+  //             name: 'Table',
+  //             price: 200,
+  //             description: 'A nice table'
+  //       },
+  //       {
+  //             id: 4,
+  //             name: 'Table',
+  //             price: 200,
+  //             description: 'A nice table'
+  //       }
+// ],
+  // almari: [
+    //       {
+    //             id: 1,
+    //             name: 'almari',
+    //             price: 200,
+    //             description: 'A nice almari'
+    //       },
+    //       {
+    //             id: 2,
+    //             name: 'almari',
+    //             price: 200,
+    //             description: 'A nice almari'
+    //       },
+    //       {
+    //             id: 3,
+    //             name: 'almari',
+    //             price: 200,
+    //             description: 'A nice almari'
+    //       },
+    //       {
+    //             id: 4,
+    //             name: 'almari',
+    //             price: 200,
+    //             description: 'A nice almari'
+    //       },
+  // ],
