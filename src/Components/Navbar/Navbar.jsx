@@ -54,7 +54,7 @@ const Navbar = () => {
         <div className="navbar_toggleMenu">
           <ImMenu3 fontSize={32} className="overlay__close" color='#FFF' onClick={() => setToggleMenu(true)} />
           {toggleMenu && (
-            <div className="navbar_toggleMenu-overlay slide-bottom">
+            <div className="navbar_toggleMenu-overlay slide_navbar_outside">
               <RxCross1 fontSize={32} onClick={() => setToggleMenu(false)} />
               <div className="navbar_togglemenu_right">
                 <Link to="/userinfo"><RxPerson fontSize={27} /></Link>
@@ -62,10 +62,10 @@ const Navbar = () => {
                 <Link to="/shopCart"><HiOutlineShoppingBag fontSize={27} /></Link>
               </div>
               <ul className='navbar_toggleMenu-links'>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/shop">Shop</Link></li>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
+                <li><Link to="/" onClick={() => setToggleMenu(false)}>Home</Link></li>
+                <li><Link to="/shop" onClick={() => setToggleMenu(false)}>Shop</Link></li>
+                <li><Link to="/login" onClick={() => setToggleMenu(false)}>Login</Link></li>
+                <li><Link to="/contact" onClick={() => setToggleMenu(false)}>Contact Us</Link></li>
               </ul>
             </div>
           )}
