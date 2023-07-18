@@ -4,6 +4,7 @@ import Data from "../../Data/ItemData";
 import { ShopItem } from '../../Constant';
 import { callNotification } from "../../Store/StoreCart/StoreCart";
 import { useDispatch } from 'react-redux';
+import Modal from '../../Constant/Modal/Modal';
 
 const Search = () => {
 
@@ -49,10 +50,25 @@ const Search = () => {
       title: "Chair"
     },
   ]
+  const [showModal, setShowModal] = useState(false);
+  const [passItem, setPassItem] = useState(null)
 
+  const callModal = (modalItem) => {
+    setShowModal(true);
+    setPassItem(modalItem);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setPassItem(null);
+  };
   return (
     <div className='search'>
-
+      <div className="search_modal">
+        {
+          showModal && <Modal item={passItem} closeModal={closeModal} />
+        }
+      </div>
       <div className="search_box">
         <div className="search_bg">
           <form onSubmit={handleSearch}>
@@ -84,7 +100,7 @@ const Search = () => {
             (
               <ul className="search_result_item_container">
                 {searchResults.map((item, i) => (
-                  <ShopItem key={i} item={item} />
+                  <ShopItem key={i} item={item} callModal={callModal} />
                 ))}
               </ul>
             ) : (

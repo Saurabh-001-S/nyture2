@@ -1,0 +1,152 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+.modal_det {
+  width: 60%;
+  max-width: 800px;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal_img {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.modal_img .img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.modal_detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.details_p {
+  padding: 0.5rem 0;
+  font-size: 18px;
+}
+
+.modal_price {
+  color: rgb(198, 111, 111);
+  font-size: 20px;
+  padding: 0.7rem 0;
+}
+
+.modal_detail h1 {
+  font-size: 24px;
+  color: var(--bg-color-2);
+  margin-bottom: 1rem;
+}
+
+.modal_det_btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: cadetblue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus,
+button:hover {
+  outline: none;
+  background-color: #fff;
+  color: cadetblue;
+}
+
+.close-icon {
+  font-size: 24px;
+  color: #888888;
+  cursor: pointer;
+}
+
+.close-icon:hover {
+  color: #555555;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .modal_det {
+    width: 90%;
+  }
+
+  .modal_img {
+    max-height: 300px;
+  }
+
+  .modal_price {
+    font-size: 18px;
+  }
+
+  .modal_detail h1 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal_det {
+    padding: 1rem;
+    flex-direction: column-reverse;
+    align-items: end;
+    gap: 0.5rem;
+  }
+
+  .modal_det_details {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal_img {
+    margin: auto;
+  }
+
+  .modal_img img {
+    height: 250px;
+  }
+
+  .modal_price {
+    font-size: 16px;
+  }
+
+  .details_p {
+    padding: 0.3rem 0;
+  }
+
+  .modal_detail h1 {
+    font-size: 18px;
+    margin: 0.6rem 0;
+  }
+}
