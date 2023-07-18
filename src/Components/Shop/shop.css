@@ -1,8 +1,57 @@
 .shop {
-      display: grid;
-      grid-template-columns: repeat(5, 250px);
-      grid-gap: 1.5rem;
-      justify-content: center;
-      align-items: center;
-      margin: 2rem auto;
+   padding: 2rem 0;
+   margin: 0 auto;
+   background-color: #80808008;
+}
+
+.shop-ul {
+   display: grid;
+   grid-template-columns: repeat(5, 250px);
+   grid-gap: 1.5rem;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.shopItem {
+   width: 100/5%;
+   height: 100%;
+}
+
+@media screen and (max-width:1300px) {
+   .shop-ul {
+      grid-template-columns: repeat(4, 250px);
+      grid-gap: 1rem;
+   }
+}
+
+@media screen and (max-width:1050px) {
+   .shop-ul {
+      padding: 0 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      grid-gap: 1rem;
+   }
+}
+
+@media screen and (max-width:950px) {
+   .shop-ul {
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      grid-gap: 1rem;
+   }
+}
+
+@media screen and (max-width:750px) {
+   .shop-ul {
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      grid-gap: 1rem;
+   }
+
+}
+
+@media screen and (max-width:550px) {
+   .shop-ul {
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      grid-gap: 1rem;
+   }
+
 }
