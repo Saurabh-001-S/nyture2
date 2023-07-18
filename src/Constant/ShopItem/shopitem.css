@@ -1,21 +1,17 @@
-.shopItem {
-      display: inline-block;
-}
-
 .shopItem_det {
-      width: 250px;
-      height: min-content;
       display: flex;
       flex-direction: column;
       padding: 1rem;
-      background-color: var(--item-bg);
+      background-color: transparent;
       align-items: center;
       border-radius: 5px;
+      height: 100%;
+      border: 1px solid var(--black-color)
 }
 
 .item_img {
-      width: 240px;
-      height: 315px;
+      width: 100%;
+      height: 300px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -23,19 +19,26 @@
 }
 
 .item_img .img {
-      width: 98%;
-      height: 98%;
+      width: 100%;
+      height: 100%;
       object-fit: scale-down;
       object-position: center;
+      mix-blend-mode: multiply;
 }
 
 .item_detail {
       width: 240px;
-      height: 150px;
+      height: auto;
       display: flex;
       gap: 1rem;
       flex-direction: column;
-      justify-content: end;
+      padding: 0 1rem;
+}
+
+.item_detail p {
+      font-size: 18px;
+      line-height: 20px;
+      color: var(--bg-color-2);
 }
 
 .price {
@@ -43,18 +46,17 @@
       font-size: 20px;
 }
 
-.item_detail h1 {
-      font-size: 20px;
-      line-height: 20px;
-      color: var(--bg-color-2);
-}
 
 .det_btn {
       display: flex;
       justify-content: space-between;
-      padding: 0 1.5rem;
+      padding: 0;
 }
 
+.details-price {
+      justify-content: space-between;
+      cursor: pointer;
+}
 
 button {
       padding: 0.3rem 0.5rem;
@@ -69,74 +71,4 @@ button:hover {
       outline-offset: 5px;
       background-color: #fff;
       color: cadetblue;
-}
-
-@media screen and (max-width:1400px) {
-      .shopItem_det {
-            width: 240px;
-      }
-
-      .item_img {
-            width: 230px;
-      }
-
-      .item_detail {
-            width: 230px;
-      }
-}
-
-@media screen and (max-width:1300px) {
-      .shopItem_det {
-            width: 230px;
-      }
-
-      .item_img {
-            width: 225px;
-      }
-
-      .item_detail {
-            width: 225px;
-      }
-}
-
-
-@media screen and (max-width:1150px) {
-      .shopItem_det {
-            width: 210px;
-      }
-
-      .item_img {
-            width: 200px;
-      }
-
-      .item_detail {
-            width: 200px;
-      }
-}
-
-@media screen and (max-width:1050px) {
-      .shopItem_det {
-            width: 200px;
-      }
-
-      .item_img {
-            width: 190px;
-      }
-
-      .item_detail {
-            width: 190px;
-      }
-
-      .price {
-            font-size: 15px;
-      }
-
-      .item_detail h1 {
-            font-size: 16px;
-            line-height: 16px;
-      }
-
-      .det_btn {
-            padding: 0 1rem;
-      }
 }
