@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { ShopCartItem } from '../../Constant/index';
-import "./shoppingcart.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, getCartTotal, buyAllCartItem } from "../../Store/StoreCart/StoreCart";
 import { Link } from 'react-router-dom';

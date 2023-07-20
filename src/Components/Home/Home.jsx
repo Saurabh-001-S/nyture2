@@ -1,17 +1,16 @@
 import React, { useRef, useState } from 'react'
-import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
-import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { AiOutlineInstagram } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
-import { ImageSlider, ShopItem } from "../../Constant/index";
+import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
+import { AiOutlineInstagram } from "react-icons/ai";
+import { ImageSlider } from "../../Constant/index";
+import { ProductSlider } from '../../Constant/index';
+import { addToCart } from '../../Store/StoreCart/StoreCart';
+import { LazyImgLoad } from "../../Constant/index";
+import data from "../../Data/ItemData";
 import {
       h1, h2, h3, h4, h5, sofaBedio, Chair, Table, Sofa, Jhoola, Special_img,
-      s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13
+      s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12
 } from "../../Data/Images/index";
-import { addToCart } from '../../Store/StoreCart/StoreCart';
-import data from "../../Data/ItemData";
-
-import './home.css';
 
 const Home = () => {
       let images = [h1, h2, h3, h4, h5];
@@ -35,33 +34,6 @@ const Home = () => {
             }
       }
 
-      function itemPage() {
-            let root = document.getElementById('root');
-            if (root.clientWidth < 500) {
-                  return 1;
-            }
-            else if (root.clientWidth < 750) {
-                  return 2;
-            }
-            else if (root.clientWidth < 1000) {
-                  return 3;
-            }
-            else if (root.clientWidth < 1300) {
-                  return 4;
-            }
-            else {
-                  return 5;
-            }
-      }
-      const itemsPerPage = itemPage();
-      const [currentSlide, setCurrentSlide] = useState(0);
-      const nextSlide = () => {
-            setCurrentSlide((prevSlide) => (prevSlide + itemsPerPage) % items.length);
-      };
-      const prevSlide = () => {
-            setCurrentSlide((prevSlide) => (prevSlide - itemsPerPage + items.length) % items.length);
-      };
-
       return (
             <div className='home' id='home'>
 
@@ -79,19 +51,19 @@ const Home = () => {
                               </div>
                         </div>
                         <div className="home_offer-items item-1">
-                              <img src={Chair} alt="image" />
+                              <LazyImgLoad src={Chair} CName={''} />
                               <p>Lether Chair</p>
                         </div>
                         <div className="home_offer-items item-2">
-                              <img src={Table} alt="image" />
+                              <LazyImgLoad src={Table} CName={''} />
                               <p>Coffee Table</p>
                         </div>
                         <div className="home_offer-items item-3">
-                              <img src={Jhoola} alt="image" />
+                              <LazyImgLoad src={Jhoola} CName={''} />
                               <p>Ceiling Jhula</p>
                         </div>
                         <div className="home_offer-items item-4">
-                              <img src={Sofa} alt="image" />
+                              <LazyImgLoad src={Sofa} CName={''} />
                               <p>Sofa</p>
                         </div>
                   </div>
@@ -132,29 +104,13 @@ const Home = () => {
                               <a href='/buy' className='btn'>ShopNow</a>
                         </div>
                         <div className="special_item_img">
-                              <img src={Special_img} alt="image" />
+                              <LazyImgLoad src={Special_img} CName={''} />
                         </div>
                   </div >
 
                   {/*  -----------------------------Recommendation SECTION-------------------------------------   */}
                   <div className="home_recommendation">
-                        <div className='rec_slider_container'>
-                              <button className='bton' type="button" onClick={prevSlide}>
-                                    <MdOutlineKeyboardArrowLeft fontSize={30} />
-                              </button>
-                              <div className="rec_slider">
-                                    <ul className="rec_slider_data" >
-                                          {
-                                                items.slice(currentSlide, currentSlide + itemsPerPage).map((item) => (
-                                                      <ShopItem key={item.id} item={item} />
-                                                ))
-                                          }
-                                    </ul>
-                              </div>
-                              <button className='bton' type="button" onClick={nextSlide}>
-                                    <MdOutlineKeyboardArrowRight fontSize={30} />
-                              </button>
-                        </div>
+                        <ProductSlider items={items} />
                   </div>
 
                   {/*  -----------------------------Social SECTION-------------------------------------   */}
@@ -167,18 +123,18 @@ const Home = () => {
                                     </a>
                               </div>
                               <div className="social_img_container" id="social">
-                                    <img src={s1} alt="image" className='img' />
-                                    <img src={s2} alt="image" className='img' />
-                                    <img src={s3} alt="image" className='img' />
-                                    <img src={s4} alt="image" className='img' />
-                                    <img src={s5} alt="image" className='img' />
-                                    <img src={s6} alt="image" className='img' />
-                                    <img src={s7} alt="image" className='img' />
-                                    <img src={s8} alt="image" className='img' />
-                                    <img src={s9} alt="image" className='img' />
-                                    <img src={s10} alt="image" className='img' />
-                                    <img src={s11} alt="image" className='img' />
-                                    <img src={s12} alt="image" className='img' />
+                                    <LazyImgLoad src={s1} CName={'img'} />
+                                    <LazyImgLoad src={s2} CName={'img'} />
+                                    <LazyImgLoad src={s3} CName={'img'} />
+                                    <LazyImgLoad src={s4} CName={'img'} />
+                                    <LazyImgLoad src={s5} CName={'img'} />
+                                    <LazyImgLoad src={s6} CName={'img'} />
+                                    <LazyImgLoad src={s7} CName={'img'} />
+                                    <LazyImgLoad src={s8} CName={'img'} />
+                                    <LazyImgLoad src={s9} CName={'img'} />
+                                    <LazyImgLoad src={s10} CName={'img'} />
+                                    <LazyImgLoad src={s11} CName={'img'} />
+                                    <LazyImgLoad src={s12} CName={'img'} />
                               </div>
                         </div>
                   </div>

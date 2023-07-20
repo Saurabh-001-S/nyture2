@@ -35,7 +35,8 @@ import s10 from "./s10.jpg";
 import s11 from "./s11.jpg";
 import s12 from "./s12.jpg";
 import s13 from "./s13.jpg";
-
+import star from "./star.png";
+import Emptystar from "./Emptystar.png";
 
 export {
       Home1, Home2, Home3, Home4, Home5,
@@ -43,4 +44,5 @@ export {
       Chair, Jhoola, Sofa, Table, sofaBedio,
       ItemDrawer, ItemSofa, ItemDiningchair, ItemArmChair, Special_img,
       s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13,
+      star, Emptystar
 }

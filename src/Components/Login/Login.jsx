@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './login.css';
+import { LoginSetion, SignUpPage } from "../../Constant/index";
 
 const Login = () => {
 
@@ -10,7 +10,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="auth">
+      <div className="auth" id='auth'>
         <div className={`wrapper  ${toggleclass ? "active" : ""}`}>
           <LoginSetion setClass={setClass} />
           <SignUpPage setClass={setClass} />

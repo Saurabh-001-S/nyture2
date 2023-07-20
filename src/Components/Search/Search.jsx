@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './search.css'
 import Data from "../../Data/ItemData";
 import { ShopItem } from '../../Constant';
 import { callNotification } from "../../Store/StoreCart/StoreCart";

@@ -1,3 +1,7 @@
+:root {
+  --p-color: #162938;
+}
+
 .auth {
   margin: auto;
   min-height: 80vh;
@@ -56,9 +60,9 @@
   right: 0;
   width: 45px;
   height: 45px;
-  background: #162938;
+  background: var(--p-color);
   font-size: 2em;
-  color: #fff;
+  color: var(--white-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +73,7 @@
 
 .form-box h2 {
   font-size: 2em;
-  color: #162938;
+  color: var(--p-color);
   text-align: center;
 }
 
@@ -77,7 +81,7 @@
   position: relative;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid #162938;
+  border-bottom: 2px solid var(--p-color);
   margin: 30px 0;
 }
 
@@ -87,7 +91,7 @@
   left: 5px;
   transform: translateY(-50%);
   font-size: 1em;
-  color: #162938;
+  color: var(--p-color);
   font-weight: 500;
   pointer-events: none;
   transition: 0.5s;
@@ -105,7 +109,7 @@
   border: none;
   outline: none;
   font-size: 1em;
-  color: #162938;
+  color: var(--p-color);
   font-weight: 600;
   padding: 0 35px 0 5px;
 }
@@ -114,13 +118,13 @@
   position: absolute;
   right: 8px;
   font-size: 1.2em;
-  color: #162938;
+  color: var(--p-color);
   line-height: 57px;
 }
 
 .remmember-forgot {
   font-size: .9em;
-  color: #162938;
+  color: var(--p-color);
   font-weight: 500;
   margin: -15px 0 15px;
   display: flex;
@@ -129,17 +133,17 @@
 
 .remmember-forgot label {
   font-size: 16px;
-  color: #162938;
+  color: var(--p-color);
 }
 
 .remmember-forgot label input {
-  accent-color: #162938;
+  accent-color: var(--p-color);
   margin-right: 3px;
   width: fit-content;
 }
 
 .remmember-forgot a {
-  color: #162938;
+  color: var(--p-color);
   text-decoration: none;
 }
 
@@ -150,26 +154,26 @@
 .login_btn {
   width: 100%;
   height: 45px;
-  background: #162938;
+  background: var(--p-color);
   border: none;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1em;
-  color: white;
+  color: var(--white-color);
   font-weight: 500;
 }
 
 .login-register {
   font-size: .9em;
-  color: #162938;
+  color: var(--p-color);
   text-align: center;
   font-weight: 500;
   margin: 25px 0 10px;
 }
 
 .login-register p a {
-  color: #162938;
+  color: var(--p-color);
   text-decoration: none;
   font-weight: 600;
 }

@@ -1,11 +1,15 @@
-import ShopCartItem from "./ShopCart/ShopCartItem";
-import ShopItem from "./ShopItem/ShopItem";
-import ImageSlider from "./ImageSlide/ImageSlider";
-import BuyItem from "./BuyItem/BuyItem";
-import MainContact from "./Contact/MainContact";
-import QuesContact from "./Contact/QuesContact";
-import LoginSetion from "./AuthPage/LoginSetion";
-import SignUpPage from "./AuthPage/SignUpPage";
+import { lazy } from "react";
+import LazyImgLoad from "./LazyImgLoad/LazyImgLoad";
+
+const ShopCartItem = lazy(() => import('./ShopCart/ShopCartItem'))
+const ShopItem = lazy(() => import('./ShopItem/ShopItem'))
+const ImageSlider = lazy(() => import('./ImageSlide/ImageSlider'))
+const BuyItem = lazy(() => import('./BuyItem/BuyItem'))
+const MainContact = lazy(() => import('./Contact/MainContact'))
+const QuesContact = lazy(() => import('./Contact/QuesContact'))
+const LoginSetion = lazy(() => import('./AuthPage/LoginSetion'))
+const SignUpPage = lazy(() => import('./AuthPage/SignUpPage'))
+const ProductSlider = lazy(() => import('./ProductSlider/ProductSlider'))
 
 export {
       BuyItem,
@@ -15,5 +19,7 @@ export {
       ShopCartItem,
       ShopItem,
       SignUpPage,
-      LoginSetion
+      LoginSetion,
+      ProductSlider,
+      LazyImgLoad
 }

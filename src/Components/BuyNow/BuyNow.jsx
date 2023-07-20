@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import "./buyNow.css";
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BuyItem } from "../../Constant/index";
 import BOB from "./BOB.png";

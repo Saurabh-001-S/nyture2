@@ -7,7 +7,8 @@ const initialCart = {
   notification: [],
   item: productData,
   totalQuantity: 0,
-  totalPrice: 0
+  totalPrice: 0,
+  UserloginOrNot: "false"
 }
 const Message_props = [
   {
@@ -159,12 +160,15 @@ const cartSlice = createSlice({
     },
     callNotification: (state, action) => {
       state.notification.push(Message_props[action.payload])
+    },
+    AuthTrueorNot: (state, action) => {
+      state.UserloginOrNot = action.payload;
     }
   },
 });
 export const {
   addToCart, increaseItemQuantity, decreaseItemQuantity, removeFromCart,
   clearCart, buyNow, getCartTotal, removeFromBuy, buyAllCartItem, clearBuy,
-  removeFromNotification, callNotification
+  removeFromNotification, callNotification, AuthTrueorNot
 } = cartSlice.actions;
 export default cartSlice.reducer;

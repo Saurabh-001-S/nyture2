@@ -94,7 +94,17 @@ button:hover {
   color: #555555;
 }
 
+.rating_star {
+  width: fit-content;
+  height: 25px;
+  display: flex;
+  gap: 0.1rem;
+}
 
+.rating_star img {
+  height: 100%;
+  object-fit: contain;
+}
 
 @media screen and (max-width: 768px) {
   .modal_det {

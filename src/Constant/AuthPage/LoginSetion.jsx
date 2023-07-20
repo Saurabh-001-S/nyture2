@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { callNotification } from '../../Store/StoreCart/StoreCart';
+import { AuthTrueorNot, callNotification } from '../../Store/StoreCart/StoreCart';
 import Warning from "./warning.png";
 
 const LoginSetion = ({ setClass }) => {
@@ -23,6 +23,7 @@ const LoginSetion = ({ setClass }) => {
             navigate("/")
             dispatch(callNotification(6))
             passcont.style.display = "none"
+            dispatch(AuthTrueorNot(true));
          } else passcont.style.display = "flex"
       } else passcont.style.display = "flex"
    }

@@ -6,7 +6,6 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { ImMenu3 } from "react-icons/im";
 import { removeFromNotification } from '../../Store/StoreCart/StoreCart';
-import './navbar.css';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false)

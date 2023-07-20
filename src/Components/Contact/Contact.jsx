@@ -1,6 +1,5 @@
 import React from 'react'
 import { MainContact } from "../../Constant/index"
-import './contact.css';
 
 const Contact = () => {
 

@@ -3,8 +3,6 @@ import { FaFacebook } from "react-icons/fa";
 import { AiFillYoutube, AiOutlineInstagram } from "react-icons/ai";
 import { BsTwitter } from "react-icons/bs";
 
-import './footer.css';
-
 const Footer = () => {
    return (
       <div className='footer'>
