@@ -1,0 +1,60 @@
+.product {
+      position: relative;
+      overflow: hidden;
+      padding: 16px 0;
+}
+
+.product-container {
+      padding: 0 0.7rem;
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      height: 550px;
+      gap: 0.5rem;
+      margin: 0 2rem;
+      width: 94%;
+}
+
+.product-container::-webkit-scrollbar {
+      display: none;
+}
+
+.pre-btn,
+.nxt-btn {
+      border: none;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      cursor: pointer;
+      z-index: 8;
+}
+
+.pre-btn {
+      left: -7px;
+}
+
+.nxt-btn {
+      right: -7px;
+}
+
+.pre-btn svg,
+.nxt-btn svg {
+      opacity: 0.5;
+      border: 1px solid;
+      border-radius: 5px;
+}
+
+.pre-btn:hover,
+.nxt-btn:hover {
+      background: none;
+}
+
+.pre-btn:hover svg,
+.nxt-btn:hover svg {
+      opacity: 1;
+      background: none;
+}

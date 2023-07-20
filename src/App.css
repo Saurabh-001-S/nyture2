@@ -36,6 +36,26 @@ button {
   border: none;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.52rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.52rem;
+}
+
+.p-fade {
+  color: var(--bg-color);
+  font-weight: 600;
+}
+
 @media screen and (max-width:800px) {
   .btn {
     font-size: 11px;

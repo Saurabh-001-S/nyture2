@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
-
+import { LazyImgLoad } from "../index";
 
 const ImageSlider = ({ images, descriptions }) => {
 
@@ -37,7 +37,7 @@ const ImageSlider = ({ images, descriptions }) => {
                         </div>
                   </div>
                   <div className="home_slider-img">
-                        <img src={images[currentSlide]} alt="Slider Image" />
+                        <LazyImgLoad src={images[currentSlide]} CName={''} />
                   </div>
             </div>
       );

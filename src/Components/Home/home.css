@@ -504,75 +504,12 @@ img {
 
 /*  -----------------------------RecommendationSECTION-------------------------------------   */
 .home_recommendation {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1.5rem;
+      width: 100%;
+      padding: 0.3rem;
+      height: 600px;
 }
 
-.rec_slider_container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      display: 90vw;
-}
 
-.rec_slider_data {
-      display: flex;
-      gap: 0.8rem;
-      justify-content: center;
-      align-items: center;
-
-      padding: 2rem;
-      width: 90vw;
-      border: 3px solid black;
-      overflow: hidden;
-}
-
-.rec_slider_container .bton {
-      background: var(--opac-bg);
-      border: none;
-      font-size: 2rem;
-      padding: 2rem 0.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-}
-
-.rec_slider_container .bton:hover {
-      background: var(--item-bg);
-}
-
-@media screen and (max-width:1250px) {
-      .rec_slider_data {
-            gap: 0.3rem;
-            width: 90vw;
-      }
-}
-
-@media screen and (max-width:1050px) {
-      .home_recommendation {
-            padding: 1rem;
-      }
-
-      .rec_slider_data {
-            gap: 1rem;
-            padding: 1.2rem;
-            width: 90vw;
-      }
-}
-
-@media screen and (max-width:750px) {
-      .rec_slider_container .bton {
-            padding: 2rem 0.2rem;
-            font-size: 1.5rem;
-      }
-
-      .rec_slider_data {
-            gap: 1rem;
-            padding: 1rem;
-            width: fit-content;
-      }
-}
 
 /*  -----------------------------Social SECTION-------------------------------------   */
 .home_social {

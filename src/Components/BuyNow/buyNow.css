@@ -289,26 +289,6 @@ input:focus {
    font-variant: small-caps;
 }
 
-/* ------------>> UTILITY CLASSES <<------------ */
-.flex-col {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: flex-start;
-   gap: 0.52rem;
-}
-
-.flex-row {
-   display: flex;
-   flex-direction: row;
-   align-items: flex-start;
-   gap: 0.52rem;
-}
-
-.p-fade {
-   color: var(--bg-color);
-   font-weight: 600;
-}
 
 /* ------------>> Responsive  <<------------ */
 @media screen and (max-width:1050px) {

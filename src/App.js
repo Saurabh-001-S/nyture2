@@ -1,26 +1,41 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
 import './App.css';
-import { Navbar, Footer, Shop, ShoppingCart, Home, BuyNow, Contact, Account, Login, Search } from "./Components/index";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+   Navbar,
+   Footer,
+   ShoppingCart,
+   Shop,
+   Home,
+   BuyNow,
+   Contact,
+   Account,
+   Login,
+   Search
+} from "./Components/index";
+
 function App() {
-   // console.log = () => { }
    return (
       <Router>
          <div className="App">
-            <Navbar />
-            <Routes>
-               <Route path='/' element={<Home />} />
-               <Route exact path='/shop' element={<Shop />} />
-               <Route exact path='/shopCart' element={<ShoppingCart />} />
-               <Route exact path='/buy' element={<BuyNow />} />
-               <Route exact path='/contact' element={<Contact />} />
-               <Route exact path='/userinfo' element={<Account />} />
-               <Route exact path='/login' element={<Login />} />
-               <Route exact path='/search' element={<Search />} />
-            </Routes>
-            <Footer />
+            <Suspense fallback={<div>Loading...</div>}>
+               <Navbar />
+               <Routes>
+                  <Route exact path="/shopCart" element={<ShoppingCart />} />
+                  <Route exact path="/userinfo" element={<Account />} />
+                  <Route exact path="/contact" element={<Contact />} />
+                  <Route exact path="/search" element={<Search />} />
+                  <Route exact path="/login" element={<Login />} />
+                  <Route exact path="/buy" element={<BuyNow />} />
+                  <Route exact path="/shop" element={<Shop />} />
+                  <Route path="/" element={<Home />} />
+               </Routes>
+               <Footer />
+            </Suspense>
          </div>
       </Router>
    );
 }
 
 export default App;
+

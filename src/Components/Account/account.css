@@ -196,3 +196,30 @@
       height: auto;
    }
 }
+
+.overlay_section {
+   width: 100vw;
+   height: 89vh;
+   position: absolute;
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   color: red;
+   z-index: 9999999;
+   opacity: 1 !important;
+}
+
+.overlay_section #closeModal {
+   position: relative;
+   z-index: 99;
+   font-size: 39px;
+   color: red;
+   top: 87px;
+   left: 103%;
+}
+
+.inactive {
+   pointer-events: none;
+   scroll-behavior: unset;
+}

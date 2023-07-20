@@ -1,24 +1,35 @@
-import BuyNow from "./BuyNow/BuyNow";
-import Contact from "./Contact/Contact";
-import Footer from "./Footer/Footer";
-import Home from "./Home/Home";
-import Navbar from "./Navbar/Navbar";
-import Shop from "./Shop/Shop";
-import ShoppingCart from "./ShopCart/ShoppingCart";
-import Search from "./Search/Search";
-import Account from "./Account/Account";
-import Login from "./Login/Login";
+import "./ShopCart/shoppingcart.css";
+import './Contact/contact.css';
+import './Account/account.css';
+import './Navbar/navbar.css';
+import './Footer/footer.css';
+import './BuyNow/buyNow.css';
+import { lazy } from 'react';
+import './Search/search.css'
+import './Login/login.css';
+import './Home/home.css';
+import './Shop/shop.css'
 
+const ShoppingCart = lazy(() => import('./ShopCart/ShoppingCart'));
+const Contact = lazy(() => import('./Contact/Contact'));
+const Account = lazy(() => import('./Account/Account'));
+const Navbar = lazy(() => import('./Navbar/Navbar'));
+const Footer = lazy(() => import('./Footer/Footer'));
+const BuyNow = lazy(() => import('./BuyNow/BuyNow'));
+const Search = lazy(() => import('./Search/Search'));
+const Login = lazy(() => import('./Login/Login'));
+const Shop = lazy(() => import('./Shop/Shop'));
+const Home = lazy(() => import('./Home/Home'));
 
 export {
-      Account,
-      BuyNow,
-      Contact,
-      Footer,
-      Home,
-      Login,
-      Navbar,
-      Shop,
       ShoppingCart,
-      Search
-}
+      Account,
+      Contact,
+      Navbar,
+      Footer,
+      BuyNow,
+      Search,
+      Login,
+      Shop,
+      Home
+};
