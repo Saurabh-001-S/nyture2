@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { LoginSetion, SignUpPage } from "../../Constant/index";
 
 const Login = () => {
-
   const [toggleclass, setToggleclass] = useState(false)
   const setClass = () => {
     setToggleclass(!toggleclass);
