@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { ShopItem } from "../../Constant/index";
 import Modal from '../../Constant/Modal/Modal';
-import Product from "../../Data/Json";
-import Item from "../../Constant/ShopItem/Item";
+
 const Shop = () => {
 
   const items = useSelector((state) => state.allCart.item);
@@ -48,12 +47,6 @@ const Shop = () => {
             <ShopItem key={item.id} item={item} callModal={callModal} />
           ))
         }
-        {/* {
-          Product.map((item, i) => {
-            console.log(item)
-            return (<Item key={i} item={item} callModal={callModal} />)
-          })
-        } */}
       </ul>
     </div>
   )

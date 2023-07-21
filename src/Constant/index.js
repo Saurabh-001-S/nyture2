@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import LazyImgLoad from "./LazyImgLoad/LazyImgLoad";
+import Loading from "./Loading/Loading";
 
 const ShopCartItem = lazy(() => import('./ShopCart/ShopCartItem'))
 const ShopItem = lazy(() => import('./ShopItem/ShopItem'))
@@ -21,5 +22,6 @@ export {
       SignUpPage,
       LoginSetion,
       ProductSlider,
-      LazyImgLoad
+      LazyImgLoad,
+      Loading
 }
