@@ -1,0 +1,59 @@
+.loading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      gap: 0.5rem;
+}
+
+.load_icon {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      width: auto;
+      height: auto;
+      animation: spin 2s linear infinite;
+      justify-content: center;
+      align-items: center;
+}
+
+.loadspin {
+      width: 25px;
+      height: 25px;
+}
+
+.lp1 {
+      border-top: 8px solid red;
+      border-left: 8px solid red;
+      border-top-left-radius: 100%;
+}
+
+.lp2 {
+      border-top: 8px solid rgb(54, 48, 48);
+      border-right: 8px solid rgb(54, 48, 48);
+      border-top-right-radius: 100%;
+}
+
+.lp3 {
+      border-bottom: 8px solid rgb(7, 7, 236);
+      border-left: 8px solid rgb(7, 7, 236);
+      border-bottom-left-radius: 100%;
+}
+
+.lp4 {
+      border-bottom: 8px solid rgb(111, 248, 6);
+      border-right: 8px solid rgb(111, 248, 6);
+      border-bottom-right-radius: 100%;
+}
+
+@keyframes spin {
+      0% {
+            transform: rotate(0deg);
+      }
+
+      100% {
+            transform: rotate(360deg);
+      }
+}

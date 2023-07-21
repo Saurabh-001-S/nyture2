@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
-import Card from "./Card.png";
-import DeleviryBox from "./DeleviryBox.png";
-import Location from "./Location.png";
-import Pays from "./Pays.png";
-import Prime from "./Prime.png";
-import Security from "./Security.png";
-import { Link } from 'react-router-dom';
-import { Login } from "../index";
-import { RxCross1 } from 'react-icons/rx';
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import DeleviryBox from "./DeleviryBox.png";
+import { RxCross1 } from 'react-icons/rx';
+import { useSelector } from 'react-redux';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import Location from "./Location.png";
+import Security from "./Security.png";
+import { Login } from "../index";
+import Prime from "./Prime.png";
+import Card from "./Card.png";
+import Pays from "./Pays.png";
 
 const Modal = ({ closeModal }) => {
   useLockBodyScroll()
@@ -21,12 +22,18 @@ const Modal = ({ closeModal }) => {
 }
 
 const Account = () => {
+  const { UserloginOrNot } = useSelector((state) => state.allCart);
+
   const [toggleModal, setToggleModal] = useState(false)
   const modol = () => {
-    setToggleModal(true)
-    const account = document.querySelector('.account')
-    account.style.opacity = "0.4";
-    document.querySelector('.navbar').classList.add("inactive")
+    if (UserloginOrNot === false) {
+      setToggleModal(true)
+      const account = document.querySelector('.account')
+      account.style.opacity = "0.4";
+      document.querySelector('.navbar').classList.add("inactive")
+    } else {
+      alert("You already Login")
+    }
   }
 
   const closeModal = () => {

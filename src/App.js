@@ -11,14 +11,15 @@ import {
    Contact,
    Account,
    Login,
-   Search
+   Search,
 } from "./Components/index";
+import { Loading } from "./Constant/index";
 
 function App() {
    return (
       <Router>
          <div className="App">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
                <Navbar />
                <Routes>
                   <Route exact path="/shopCart" element={<ShoppingCart />} />
