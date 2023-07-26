@@ -16,6 +16,7 @@ const LoginSetion = ({ setClass }) => {
       e.preventDefault();
       const storedData = localStorage.getItem(email);
       const passcont = document.getElementById('wrongCredentials')
+      console.log(passcont)
       if (storedData) {
          const [storedName, storedPassword] = JSON.parse(storedData);
          if (password === storedPassword) {
@@ -32,7 +33,7 @@ const LoginSetion = ({ setClass }) => {
       <div className="form-box login">
          <h2>Login</h2>
          <form onSubmit={checkLogin}>
-            <div className="WrongCredentials" id='wrongCredentials'>
+            <div className="WrongCredentials flex-row" id='wrongCredentials'>
                <img src={Warning} alt="warning" />
                <p>You have entered an invalid gmail or password</p>
             </div>

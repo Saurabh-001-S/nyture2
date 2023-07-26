@@ -67,7 +67,7 @@
       object-fit: contain;
 }
 
-img {
+.home_slider-img img {
       width: 100%;
       height: 100%;
 }
