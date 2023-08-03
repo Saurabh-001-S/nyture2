@@ -37,7 +37,7 @@
 
 .buyNow_login,
 .buyNow_address {
-   border: 2px solid var(--border-color);
+   border: 2px solid;
    padding: 1rem;
    border-radius: 10px;
 }
@@ -97,24 +97,34 @@
 }
 
 .payment_Icon {
-   border: 2px solid var(--border-color);
+   border: 2px solid;
    border-radius: 15px;
    padding: 0.5rem;
 }
 
 .payment_heading {
+   font-family: var(--main-font);
+   font-weight: 700;
    font-size: 24px;
-   font-style: oblique;
    padding: 0 0.5rem;
+   color: var(--primary-col);
 }
 
 
 /* ------------>> BUYNOW ITEM DETAILS RIGHT <<------------ */
 .buyNow_body-right {
-   padding: 1.3rem;
+   padding: 1rem;
+   margin: 0.5rem 0;
    border-radius: 8px;
-   box-shadow: 1px 0px 6px -2px var(--bg-color-2);
+   box-shadow: 1px 0px 6px -2px var(--black-col);
    width: 40%;
+}
+
+.buyNow_right_head {
+   font-size: 20px;
+   font-family: var(--main-font);
+   font-weight: 700;
+   color: var(--accent-col);
 }
 
 .buyNow_item {
@@ -124,7 +134,7 @@
 .buyItem {
    padding: 0.5rem 0;
    width: 100%;
-   border-bottom: 1px solid var(--border-color);
+   border-bottom: 2px solid var(--CTA-col);
    justify-content: space-between;
 }
 
@@ -144,15 +154,22 @@
 
 .buyItem_details {
    height: 190px;
-   gap: 1rem !important;
+   gap: 0.7rem;
    width: 55%;
+   justify-content: flex-start;
+   align-items: flex-start;
 }
 
 .detail_h3 {
    font-size: 18px;
    line-height: 17px;
-   color: var(--dark-blue);
+   color: var(--primary-col);
+}
 
+.detail_h3-price {
+   font-size: 18px;
+   line-height: 17px;
+   color: var(--black-col);
 }
 
 .buyNow_delivery {
@@ -171,6 +188,10 @@
    margin: 1rem 0;
 }
 
+.buyNow_del-p p {
+   color: var(--primary-col);
+   font-weight: 700;
+}
 
 /* ------------>> TOGGLE SECTION <<------------ */
 .payment_toggle {
@@ -188,10 +209,10 @@
 .details_name label {
    position: absolute;
    top: 50%;
-   left: 5px;
+   left: 8px;
    transform: translateY(-50%);
-   font-size: 1.3rem;
-   color: #162938;
+   font-size: 1.1rem;
+   color: var(--primary-col);
    font-weight: 500;
    pointer-events: none;
    transition: 0.5s;
@@ -202,10 +223,9 @@
    top: -5px;
 }
 
-label,
 .card_Date p {
    font-size: 19px;
-   font-style: oblique;
+   color: var(--primary-col);
 }
 
 
@@ -214,7 +234,7 @@ form input {
    font-size: 20px;
    padding: 0.4rem;
    border: none;
-   border-bottom: 2px solid var(--border-color);
+   border-bottom: 2px solid var(--CTA-col);
 }
 
 input:focus {
@@ -226,7 +246,7 @@ input:focus {
 }
 
 .card_Date-months {
-   border: 2px solid var(--border-color);
+   border: 2px solid;
    padding: 0.5rem;
    display: flex;
    gap: 0.8rem;
@@ -247,21 +267,19 @@ input:focus {
 }
 
 .confirm_button button {
-   padding: 1rem;
+   padding: 0.8rem 1rem;
    font-size: 20px;
-   background: var(--bg-color-2);
-   font-style: normal;
-   color: var(--item-bg);
+   background: var(--CTA-col);
+   color: var(--white-col);
+   border: 2px solid var(--CTA-col);
 }
 
 .confirm_button button:hover {
-   color: var(--bg-color-2);
-   background: var(--item-bg);
+   color: var(--CTA-col);
 }
 
-.details_name .label_border,
-.selection .label_border {
-   border: 2px solid var(--border-color);
+.label_border {
+   border: 2px solid var(--accent-col);
    padding: 0.5rem;
    border-radius: 10px;
 }

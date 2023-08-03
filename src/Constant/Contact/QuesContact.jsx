@@ -10,15 +10,14 @@ const QuesContact = ({ item }) => {
   return (
     <>
       <div className='Bottom_section' key={item.id}  >
-        <div className={`section ${toggleSection ? "Bottom_section-bg" : ""}`}>
+        <div className={`section ${toggleSection ? "Bottom_section-bg" : ""}`}
+          style={{ background: toggleSection ? 'var(--fade-col)' : '' }}>
           <div className="section_text">
             <div className="text_primary">{item.question}</div>
           </div>
-          <button type="button" onClick={navigate} style={{ width: '50px' }} id='botn' >
+          <button type="button" onClick={navigate} id='botn' >
             <MdOutlineKeyboardArrowRight fontSize={30} className="svg"
-              style={{
-                transform: toggleSection ? 'rotate(270deg)' : 'rotate(0deg)'
-              }} />
+              style={{ transform: toggleSection ? 'rotate(270deg)' : 'rotate(0deg)' }} />
           </button>
 
         </div>

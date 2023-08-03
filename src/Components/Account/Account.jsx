@@ -26,7 +26,7 @@ const Account = () => {
 
   const [toggleModal, setToggleModal] = useState(false)
   const modol = () => {
-    if (UserloginOrNot === false) {
+    if (UserloginOrNot) {
       setToggleModal(true)
       const account = document.querySelector('.account')
       account.style.opacity = "0.4";
@@ -44,7 +44,7 @@ const Account = () => {
   }
 
   return (
-    <>
+    <div className="account_container">
       <div className="overlay_section" style={{ display: `${toggleModal ? "flex" : "none"}` }}>
         {toggleModal && < Modal closeModal={closeModal} />}
       </div>
@@ -228,7 +228,7 @@ const Account = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

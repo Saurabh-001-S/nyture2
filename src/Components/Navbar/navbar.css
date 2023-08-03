@@ -1,15 +1,31 @@
+.navbar {
+  position: relative;
+  z-index: 5;
+  padding-bottom: 5rem;
+}
+
 .navbar nav {
   display: flex;
   padding: 0 1rem;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  background: rgba(196, 225, 246, 0.4);
+  -webkit-backdrop-filter: blur(11px);
+  backdrop-filter: blur(11px);
+  border: 1px solid rgba(196, 225, 246, 0.2);
 }
 
 .navbar_left {
   display: flex;
   justify-content: flex-start;
   padding: 1rem 2rem;
-  color: var(--black-color);
+  color: var(--black-col);
+  transition: font-size 0.5s ease alternate;
+}
+
+.nvLeft_h1 {
   font-size: 40px;
 }
 
@@ -63,6 +79,7 @@
   position: absolute;
   top: 24px;
   right: 30px;
+  color: var(--primary-col);
 }
 
 .navbar_toggleMenu-links {
@@ -84,6 +101,10 @@
 
 .navbar_toggleMenu-links li:hover {
   color: var(--color-white);
+}
+
+nav:hover a:not(:hover) {
+  opacity: 0.2;
 }
 
 @media screen and (max-width: 1150px) {
@@ -117,6 +138,10 @@
     padding: 1.5rem 0;
     font-size: 30px;
   }
+
+  .navbar_toggleMenu-overlay {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 270px) {
@@ -128,13 +153,17 @@
   .navbar_toggleMenu .overlay__close {
     right: 0;
   }
+
+  .navbar_toggleMenu-overlay {
+    width: 100%;
+  }
 }
 
-.slide-bottom {
-  animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.slide-right {
+  animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-@keyframes slide-bottom {
+@keyframes slide-right {
   0% {
     transform: translateX(50%);
     opacity: 0.1;
@@ -164,11 +193,20 @@
   animation: toast-in-right 0.4s;
 }
 
+@keyframes toast-in-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 .notification {
-  background: #fff;
+  background: var(--accent-col);
   transition: 0.3s ease;
   pointer-events: auto;
-  padding: 1rem;
   width: 300px;
   border-radius: 3px;
   box-shadow: 0 0 10px #999;
@@ -188,16 +226,6 @@
   font-size: 16px;
   text-align: left;
   width: 300px;
-  color: var(--black-color);
-}
-
-
-@keyframes toast-in-right {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
+  color: var(--black-col);
+  padding: 1rem;
 }

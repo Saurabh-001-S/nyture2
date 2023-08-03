@@ -1,7 +1,3 @@
-:root {
-  --p-color: #162938;
-}
-
 .auth {
   margin: auto;
   min-height: 80vh;
@@ -61,9 +57,9 @@
   right: 0;
   width: 45px;
   height: 45px;
-  background: var(--p-color);
+  background: var(--primary-col);
   font-size: 2em;
-  color: var(--white-color);
+  color: var(--white-col);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,8 +69,8 @@
 }
 
 .form-box h2 {
-  font-size: 2em;
-  color: var(--p-color);
+  font-size: 2rem;
+  color: var(--primary-col);
   text-align: center;
 }
 
@@ -82,7 +78,7 @@
   position: relative;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid var(--p-color);
+  border-bottom: 2px solid var(--primary-col);
   margin: 30px 0;
 }
 
@@ -91,8 +87,8 @@
   top: 50%;
   left: 5px;
   transform: translateY(-50%);
-  font-size: 1em;
-  color: var(--p-color);
+  font-size: 1rem;
+  color: var(--primary-col);
   font-weight: 500;
   pointer-events: none;
   transition: 0.5s;
@@ -109,8 +105,8 @@
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1em;
-  color: var(--p-color);
+  font-size: 1rem;
+  color: var(--primary-col);
   font-weight: 600;
   padding: 0 35px 0 5px;
 }
@@ -119,32 +115,32 @@
   position: absolute;
   right: 8px;
   font-size: 1.2em;
-  color: var(--p-color);
+  color: var(--primary-col);
   line-height: 57px;
 }
 
 .remmember-forgot {
-  font-size: .9em;
-  color: var(--p-color);
+  font-size: .9rem;
+  color: var(--primary-col);
   font-weight: 500;
-  margin: -15px 0 15px;
+  margin: 15px 0 15px;
   display: flex;
   justify-content: space-between;
 }
 
 .remmember-forgot label {
   font-size: 16px;
-  color: var(--p-color);
+  color: var(--primary-col);
 }
 
 .remmember-forgot label input {
-  accent-color: var(--p-color);
+  accent-color: var(--primary-col);
   margin-right: 3px;
   width: fit-content;
 }
 
 .remmember-forgot a {
-  color: var(--p-color);
+  color: var(--primary-col);
   text-decoration: none;
 }
 
@@ -155,26 +151,26 @@
 .login_btn {
   width: 100%;
   height: 45px;
-  background: var(--p-color);
+  background: var(--primary-col);
   border: none;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1em;
-  color: var(--white-color);
+  font-size: 1rem;
+  color: var(--white-col);
   font-weight: 500;
 }
 
 .login-register {
-  font-size: .9em;
-  color: var(--p-color);
+  font-size: .9rem;
+  color: var(--primary-col);
   text-align: center;
   font-weight: 500;
   margin: 25px 0 10px;
 }
 
 .login-register p a {
-  color: var(--p-color);
+  color: var(--primary-col);
   text-decoration: none;
   font-weight: 600;
 }
@@ -200,4 +196,17 @@
   color: red;
   text-align: center;
   height: 100%;
+}
+
+@media screen and (max-width:350px) {
+  .remmember-forgot {
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-box h2 {
+    font-size: 1.5rem;
+  }
 }

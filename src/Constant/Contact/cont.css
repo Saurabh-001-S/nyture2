@@ -1,21 +1,26 @@
-.Bottom_section-bg {
-  background: #e8ecfb;
+.Bottom_section {
+  width: auto;
 }
-
 
 .section {
   display: grid;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: auto auto;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 13px;
+  padding: 5px 0px 13px 5px;
   margin: 0 -13px;
-  border-bottom: 2px solid #f9f9f9;
+  border-bottom: 2px solid var(--primary-col);
   cursor: pointer;
 }
 
+
+.Bottom_section-bg {
+  background: var(--bg-col);
+  border-bottom: 1px solid var(--secondry-col);
+}
+
 .Rbottom_sectiont:hover {
-  background: #f5faff;
+  background: var(--bg-col);
 }
 
 .section_text {
@@ -25,7 +30,7 @@
 
 
 .text_primary {
-  color: #212121;
+  color: var(--primary-col);
   font-size: 16px;
 }
 

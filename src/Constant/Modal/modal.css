@@ -50,9 +50,24 @@
 }
 
 .modal_price {
-  color: rgb(198, 111, 111);
   font-size: 20px;
   padding: 0.7rem 0;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 0;
+}
+
+.modal_price .discount_price {
+  color: var(--primary-col);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.modal_price .original_price {
+  font-size: 15px;
+  color: var(--CTA-col);
+  text-decoration: line-through;
 }
 
 .modal_detail h1 {
@@ -68,30 +83,39 @@
   gap: 0.5rem;
 }
 
-button {
-  padding: 0.5rem 1rem;
-  background-color: cadetblue;
-  color: white;
-  border-radius: 5px;
-  border: none;
+.modal_det_btn svg {
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-button:focus,
-button:hover {
+.modal_det_btn svg:hover {
+  scale: 1.3;
+}
+
+.modal_det_btn button {
+  padding: 0.5rem 1rem;
+  color: var(--primary-col);
+  background: var(--accent-col);
+  cursor: pointer;
+  border: 1px solid var(--accent-col);
+  border-radius: 10px;
+}
+
+.modal_det_btn button:focus,
+.modal_det_btn button:hover {
   outline: none;
-  background-color: #fff;
-  color: cadetblue;
+  color: var(primary-col);
 }
 
 .close-icon {
   font-size: 24px;
-  color: #888888;
+  color: var(--primary-col);
   cursor: pointer;
 }
 
 .close-icon:hover {
-  color: #555555;
+  color: #FF0000;
+  scale: 1.2;
 }
 
 .rating_star {
@@ -106,7 +130,7 @@ button:hover {
   object-fit: contain;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 858px) {
   .modal_det {
     width: 90%;
   }

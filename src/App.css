@@ -1,39 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  color: var(--black-color);
+  scroll-behavior: smooth;
+  transition: all 0.3s ease-in-out;
 }
 
 :root {
-  --border-color: #bfb7b7;
-  --black-color: #000;
-  --white-color: #fff;
-  --bg-color: #968c83;
-  --bg-color-2: #000000c8;
-  --item-bg: #f2f2f2;
-  --dark-blue: rgb(3, 3, 74);
-  --opac-bg: #5a555570;
+  --primary-col: #0C213C;
+  --secondry-col: #2A4057;
+  --accent-col: #5C7D8E;
+  --bg-col: #ffffff;
+  --CTA-col: #112d3a;
+  --white-col: #FFF;
+  --fade-col: #d8d3d382;
+  --black-col: #000;
+  --main-font: 'Playfair Display SC', serif;
+  --paragraph-font: 'Oswald', sans-serif;
 }
 
-.btn {
-  font-size: 18px;
-  padding: 0.5rem 1rem;
-  color: var(--white-color);
-  border: 1px solid var(--white-color);
-  background: transparent;
-  border-radius: 0;
+h1,
+h2,
+h3,
+h4,
+h6 {
+  font-family: var(--main-font);
+  color: var(--accent-col);
+  font-weight: 800;
 }
 
-.btn:hover {
-  color: var(--bg-color);
+a {
+  font-weight: 500;
+  font-family: var(--main-font);
+  color: var(--primary-col);
 }
+
+p {
+  font-family: var(--paragraph-font);
+  color: var(--accent-col);
+}
+
 
 button {
-  outline: none;
+  font-size: 16px;
+  position: relative;
+  padding: 0.3rem .5rem;
+  z-index: 1;
   border: none;
+}
+
+button::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--bg-col);
+  transition: transform 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+button:hover::after {
+  transform: scaleX(1);
 }
 
 .flex-col {
@@ -49,15 +92,4 @@ button {
   flex-direction: row;
   align-items: flex-start;
   gap: 0.52rem;
-}
-
-.p-fade {
-  color: var(--bg-color);
-  font-weight: 600;
-}
-
-@media screen and (max-width:800px) {
-  .btn {
-    font-size: 11px;
-  }
 }
