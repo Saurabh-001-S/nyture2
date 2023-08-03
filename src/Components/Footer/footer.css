@@ -7,29 +7,61 @@
 }
 
 .heading {
-      color: var(--dark-blue);
       padding: 1.5rem 0;
-      display: flex;
 }
 
 .footer_social-links {
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
 }
 
 .footer_social-links a {
-      border: 2px solid var(--bg-color);
-      padding: 0.5rem;
+      border: 2px solid var(--CTA-col);
       border-radius: 50%;
+      padding: 1rem;
+      box-shadow: 0px 0px 4px var(--black-col);
+      width: 70px;
+      position: relative;
+      z-index: 1;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 }
 
-.footer_social-links svg path {
-      color: var(--bg-color);
+.footer_social-links a::after {
+      content: "";
+      position: absolute;
+      border: 2px solid var(--CTA-col);
+      border-radius: 50%;
+      padding: 1.5rem;
+      box-shadow: 0px 0px 4px var(--black-col);
+      z-index: 2;
 }
 
-.footer_social-links a :hover {
-      color: var(--dark-blue);
-      border-color: var(--dark-blue);
+.footer_social-links svg {
+      margin: auto;
+      color: var(--CTA-col);
+      position: absolute;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      padding: 1.2rem;
+}
+
+.footer_social-links svg:hover {
+      color: var(--white-col);
+}
+
+.footer_social-links a:hover::after {
+      background-color: var(--primary-col);
+      animation: rotate-diagonal-1 0.5s linear both;
+}
+
+
+.footer_social-links:hover a:not(:hover) {
+      opacity: 0.5;
 }
 
 .footer_links {
@@ -37,14 +69,21 @@
       flex-direction: column;
 }
 
+.footer_links:hover .footer_text:not(:hover) {
+      opacity: 0.5;
+}
+
 .footer_text {
-      color: var(--bg-color);
+      font-family: var(--paragraph-font);
+      color: var(--secondry-col);
       font-size: 18px;
+      font-weight: 600;
       cursor: pointer;
 }
 
 .footer_text:hover {
-      color: var(--black-color);
+      color: var(--primary-col);
+      scale: 1.1;
 }
 
 @media screen and (max-width:850px) {
@@ -63,5 +102,22 @@
             grid-template-columns: 1fr;
             gap: 2rem;
             align-items: center;
+      }
+}
+
+@keyframes rotate-diagonal-1 {
+      0% {
+            -webkit-transform: rotate3d(1, 1, 0, 0deg);
+            transform: rotate3d(1, 1, 0, 0deg);
+      }
+
+      50% {
+            -webkit-transform: rotate3d(1, 1, 0, -180deg);
+            transform: rotate3d(1, 1, 0, -180deg);
+      }
+
+      100% {
+            -webkit-transform: rotate3d(1, 1, 0, -360deg);
+            transform: rotate3d(1, 1, 0, -360deg);
       }
 }

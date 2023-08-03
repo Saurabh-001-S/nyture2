@@ -51,7 +51,7 @@ const ShoppingCart = () => {
           <p>$ {totalPrice}</p>
         </div>
         <button onClick={() => dispatch(buyAllCartItem(items))}>
-          <Link to='/buy'>Proceed to Buy</Link>
+          <Link to='/buy'>Buy Now</Link>
         </button>
         <p >EMI : {totalPrice > 500 ? 'Aaailable' : 'Unavailable'}</p>
       </div>

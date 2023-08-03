@@ -2,9 +2,9 @@
    display: flex;
    flex-direction: column;
    gap: 0.5rem;
-   padding: 1rem 0.5rem;
+   padding: 1.5rem 0.5rem;
    margin: auto;
-   width: fit-content;
+   width: 100%;
 }
 
 .search_box form {
@@ -22,24 +22,30 @@
 }
 
 .result_container {
-   width: fit-content;
+   width: 100%;
    justify-content: flex-start;
    margin: auto;
 }
 
-.search_result_item_container {
+.result_container h2 {
+   padding: 0 0 0 1rem;
+   font-size: 23px;
+}
+
+.result_ul {
    display: grid;
    grid-template-columns: repeat(5, 250px);
    grid-gap: 1.5rem;
    justify-content: center;
    align-items: center;
+   width: 100%;
 }
 
 .search_btn {
    background-color: var(--item-bg);
    color: var(--dark-blue);
    font-size: 18px;
-   border-bottom: 2px solid var(--border-color);
+   border-bottom: 2px solid;
    border-radius: 10px;
 }
 
@@ -66,7 +72,7 @@
 }
 
 .search-text li {
-   border-bottom: 2px solid var(--border-color);
+   border-bottom: 2px solid;
    padding: 0;
    margin: 0;
    border-radius: 10px;
@@ -92,14 +98,14 @@
 }
 
 @media screen and (max-width:1300px) {
-   .search_result_item_container {
+   .result_ul {
       grid-template-columns: repeat(4, 250px);
       grid-gap: 1rem;
    }
 }
 
 @media screen and (max-width:1050px) {
-   .search_result_item_container {
+   .result_ul {
       padding: 0 1.5rem;
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       grid-gap: 1rem;
@@ -108,14 +114,14 @@
 }
 
 @media screen and (max-width:950px) {
-   .search_result_item_container {
+   .result_ul {
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       grid-gap: 1rem;
    }
 }
 
 @media screen and (max-width:750px) {
-   .search_result_item_container {
+   .result_ul {
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       grid-gap: 1rem;
    }
@@ -133,10 +139,10 @@
       padding: 1rem 0;
    }
 
-   .search_result_item_container {
+   .result_ul {
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       grid-gap: 1rem;
-      padding: 0 0.5rem;
+      padding: 0 0.8rem;
    }
 
    .search_box form {

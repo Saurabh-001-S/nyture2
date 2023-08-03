@@ -1,3 +1,9 @@
+.account_container {
+   width: 100%;
+   background: var(--bg-col);
+   border-bottom: 2px solid var(--primary-col);
+}
+
 .account {
    display: flex;
    flex-direction: column;
@@ -5,13 +11,13 @@
    gap: 1rem;
    width: 1082px;
    margin: auto;
-   padding: 1rem 0;
+   padding: 1rem 0 2rem 0;
 }
 
 .acount_heading h2 {
    font-size: 35px;
-   font-weight: 500;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: 800;
+   color: var(--secondry-col);
 }
 
 .account_info {
@@ -22,6 +28,15 @@
    gap: 1rem;
 }
 
+.account_details:hover>.detailsbox:not(:hover) {
+   opacity: 0.3;
+}
+
+.account_details:hover>.detailsbox:hover {
+   transform: scale(1.05);
+   transition: transform 0.1s ease-in both;
+}
+
 .account_details,
 .account_other {
    display: grid;
@@ -30,14 +45,14 @@
 }
 
 .detailsbox {
-   border: 2px solid var(--border-color);
+   border: 2px solid;
    border-radius: 10px;
    height: 110px;
    width: 350px;
 }
 
 .detailsbox :hover {
-   background-color: #EEE;
+   background-color: var(--bg-col);
 }
 
 .detailsbox_a {
@@ -64,33 +79,42 @@
 .detailsbox_details h4 {
    padding-bottom: 0.5rem;
    font-size: 20px;
-   font-family: monospace;
+   color: var(--secondry-col);
 }
 
 .detailsbox_details p {
    font-size: 17px;
-   font-family: Georgia, 'Times New Roman', Times, serif;
+   color: var(--primary-col);
 }
 
 .border_section {
-   border: 2px solid var(--border-color);
+   border: 2px solid;
    width: 100%;
    margin: 0.5rem 0;
 }
 
 
 .other_details {
-   border: 2px solid var(--border-color);
+   border: 2px solid;
    border-radius: 10px;
    padding: 1rem;
    width: 350px;
+}
+
+.details_subHeading:hover>a:not(:hover) {
+   opacity: 0.3;
+}
+
+.details_subHeading:hover>a:hover {
+   color: var(--primary-col);
+   transform: scaleX(1.05);
+   transition: transform 0.1s ease-in;
 }
 
 .details_heading h3 {
    padding-bottom: 0.5rem;
    font-size: 20px;
    font-weight: 600;
-   font-family: monospace;
 }
 
 .details_subHeading {
@@ -99,11 +123,11 @@
 }
 
 .details_subHeading a {
-   color: blue;
-   font-size: 17px;
-   font-family: Georgia, 'Times New Roman', Times, serif;
+   color: var(--primary-col);
+   font-size: 1.1rem;
    padding: 0.2rem 0;
    cursor: pointer;
+   font-weight: 600;
 }
 
 @media screen and (max-width:1090px) {

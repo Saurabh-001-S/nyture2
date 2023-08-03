@@ -26,6 +26,7 @@ const MainContact = () => {
       element.style.display = '';
     });
   };
+
   return (
     <div className="contact_right-bottom">
       <div className="contact_navigation" onClick={navigateBack}>

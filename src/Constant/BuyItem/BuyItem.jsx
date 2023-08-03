@@ -9,7 +9,7 @@ const BuyItem = ({ item }) => {
       <div className="buyItem_details flex-col">
         <h3 className="detail_h3">{item.name.slice(0, 50)}</h3>
         <p className='p-fade'>Quantity : {item.quantity}</p>
-        <h3 className="detail_h3">${item.price}</h3>
+        <h3 className="detail_h3-price">${item.price - 20}</h3>
       </div>
     </div>
 

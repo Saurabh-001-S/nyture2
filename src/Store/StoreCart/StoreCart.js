@@ -14,50 +14,47 @@ const Message_props = [
   {
     id: 1,
     type: "success",
-    title: "Item Added To Shopping Cart",
-    backgroundColor: "#5cb85c"
+    title: "Item Added To Shopping Cart"
   },
   {
     id: 2,
     type: "danger",
-    title: "Item Deleted From Cart",
-    backgroundColor: "#d9534f"
+    title: "Item Deleted From Cart"
   },
   {
     id: 3,
     type: "info",
-    title: "Order Successfully Order",
-    backgroundColor: "#5bc0de"
+    title: "Order Successfully Order"
   },
   {
     id: 4,
     type: "warning",
-    title: "Removed all Items from Shopping Cart",
-    backgroundColor: "#ff0000c9"
+    title: "Removed all Items from Shopping Cart"
   },
   {
     id: 5,
     type: "warning",
-    title: "Please enter text in search box",
-    backgroundColor: "#ff0000c9"
+    title: "Please enter text in search box"
   },
   {
     id: 6,
     type: "warning",
-    title: "Please enter another email it already registered",
-    backgroundColor: "#ff0000c9"
+    title: "Please enter another email it already registered"
   },
   {
     id: 7,
     type: "success",
-    title: "Login succcessfully",
-    backgroundColor: "#5cb85c"
+    title: "Login succcessfully"
   },
   {
     id: 8,
     type: "success",
-    title: "Register successfully",
-    backgroundColor: "#5cb85c"
+    title: "Register successfully"
+  },
+  {
+    id: 9,
+    type: "success",
+    title: "Order succefully"
   }
 ];
 

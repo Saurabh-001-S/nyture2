@@ -44,18 +44,18 @@ const SignUpPage = ({ setClass }) => {
             </div>
 
             <div className="input-box">
-               <input type="text" value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)} required />
+               <input type="text" value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)} maxLength="10" size="10" required />
                <label>Phone number</label>
             </div>
 
             <div className="input-box">
                <span className="icon"><ion-icon name="lock-closed"></ion-icon></span>
-               <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+               <input type="password" value={password} minLength="8" onChange={(e) => setPassword(e.target.value)} required />
                <label>Password</label>
             </div>
 
             <div className="remmember-forgot">
-               <label><input type="checkbox" aria-required />I agree to the terms & conditions</label>
+               <label><input type="checkbox" required />I agree to the terms & conditions</label>
             </div>
             <button type="submit" className="login_btn">Register</button>
             <div className="login-register">

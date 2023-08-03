@@ -9,7 +9,7 @@ import SBI from "./sbi.svg";
 import { BsCreditCard2Back } from "react-icons/bs";
 import { GiWallet } from "react-icons/gi";
 import { RxGlobe } from "react-icons/rx";
-import { getCartTotal, clearBuy } from '../../Store/StoreCart/StoreCart';
+import { getCartTotal, clearBuy, callNotification } from '../../Store/StoreCart/StoreCart';
 import { useNavigate } from 'react-router-dom';
 
 const BuyNow = () => {
@@ -18,13 +18,19 @@ const BuyNow = () => {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [cvv, setCvv] = useState('');
-  const [radio, setRadio] = useState('');
-
+  const [radio, setRadio] = useState({
+    sbi: false,
+    hdfc: false,
+    bob: false,
+    icici: false,
+  });
+  const navigate = useNavigate();
   const [toggleSection, setToggleSection] = useState({
     debitCard: false,
     netBanking: false,
     onlinePay: false
   });
+
   const handleToggleSection = (paymentMethod) => {
     setToggleSection((prevState) => ({
       debitCard: paymentMethod === 'debitCard' ? !prevState.debitCard : false,
@@ -32,13 +38,23 @@ const BuyNow = () => {
       onlinePay: paymentMethod === 'onlinePay' ? !prevState.onlinePay : false
     }));
   };
-  const navigate = useNavigate();
+
+  const radiobtn = (bankselect) => {
+    setRadio((prevState) => ({
+      sbi: bankselect === 'sbi' ? !prevState.sbi : false,
+      hdfc: bankselect === 'hdfc' ? !prevState.hdfc : false,
+      bob: bankselect === 'bob' ? !prevState.bob : false,
+      icici: bankselect === 'icici' ? !prevState.icici : false
+    }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     setName(''); setMonth(''); setYear(''); setCvv(''); setCardNo(''); setRadio('');
     dispatch(clearBuy(items))
+    dispatch(callNotification(8))
     navigate('/')
   };
+
   const renderMonthOptions = () => {
     const months = [
       { value: 'MM' }, { value: '01' }, { value: '02' }, { value: '03' }, { value: '04' }, { value: '05' }, { value: '06' },
@@ -50,6 +66,7 @@ const BuyNow = () => {
       </option>
     ));
   };
+
   const renderYearOptions = () => {
     const years = [
       { value: 'YYYY' },
@@ -62,6 +79,7 @@ const BuyNow = () => {
       </option>
     ));
   };
+
   const renderPayOptions = () => {
     const pay = [
       { value: 'Select' }, { value: 'Paytm' }, { value: 'GooglePay' }, { value: 'PhonePay' }, { value: 'ApplePay' }, { value: 'AmazonPay' }
@@ -72,6 +90,7 @@ const BuyNow = () => {
       </option>
     ));
   };
+
   const items = useSelector((state) => state.allCart.buyItem);
   const { cart, totalPrice, totalQuantity } = useSelector((state) => state.allCart);
   const dispatch = useDispatch();
@@ -80,14 +99,21 @@ const BuyNow = () => {
     dispatch(getCartTotal());
   }, [cart]);
 
+  const applyDiscount = (price, discountPercentage) => {
+    const discountAmount = (price * discountPercentage) / 100;
+    const discountedPrice = price - discountAmount;
+    return discountedPrice;
+  }
+  const discount = 10;
+
   const total = () => {
     if (totalQuantity === 0) {
       return 0;
     } else {
       if (totalPrice < 400) {
-        return totalPrice + 10;
+        return applyDiscount(totalPrice, discount) + 10;
       } else {
-        return totalPrice + 20;
+        return applyDiscount(totalPrice, discount) + 20;
       }
     }
   }
@@ -153,7 +179,7 @@ const BuyNow = () => {
                       <div className="details_card flex-row" style={{ marginTop: "1rem" }}>
                         <div className="card_Date flex-col">
                           <p htmlFor="date">Valid Date</p>
-                          <div className="card_Date-months">
+                          <div className="card_Date-months label_border">
                             <label> <select value={month} onChange={(e) => setMonth(e.target.value)}> {renderMonthOptions()}</select></label>
                             <label>  <select value={year} onChange={(e) => setYear(e.target.value)}> {renderYearOptions()}</select></label>
                           </div>
@@ -186,32 +212,32 @@ const BuyNow = () => {
 
                 {toggleSection.netBanking && (<>
                   <div className="netBanking_bank flex-row">
-                    <div className="bank flex-col">
+                    <div className="bank flex-col" style={{ opacity: `${radio.sbi === false ? "0.4" : "1"}` }}>
                       <img src={SBI} alt="SBI" />
                       <p>SBI</p>
                       <input type="radio" className="checkbox"
-                        name="bankSelection" value="SBI" onChange={(e) => setRadio(e.target.value)}
+                        name="bankSelection" value={radio.sbi} onChange={(e) => radiobtn('sbi')}
                       />
                     </div>
-                    <div className="bank flex-col">
+                    <div className="bank flex-col" style={{ opacity: `${radio.hdfc === false ? "0.4" : "1"}` }}>
                       <img src={HDFC} alt="HDFC" />
                       <p>HDFC</p>
                       <input type="radio" className="checkbox"
-                        name="bankSelection" value="HDFC" onChange={(e) => setRadio(e.target.value)}
+                        name="bankSelection" value={radio.hdfc} onChange={(e) => radiobtn('hdfc')}
                       />
                     </div>
-                    <div className="bank flex-col">
+                    <div className="bank flex-col" style={{ opacity: `${radio.bob === false ? "0.4" : "1"}` }}>
                       <img src={BOB} alt="HDFC" />
                       <p>BOB</p>
                       <input type="radio" className="checkbox"
-                        name="bankSelection" value="BOB" onChange={(e) => setRadio(e.target.value)}
+                        name="bankSelection" value={radio.bob} onChange={(e) => radiobtn('bob')}
                       />
                     </div>
-                    <div className="bank flex-col">
+                    <div className="bank flex-col" style={{ opacity: `${radio.icici === false ? "0.4" : "1"}` }}>
                       <img src={ICICI} alt="HDFC" />
                       <p>ICICI</p>
                       <input type="radio" className="checkbox"
-                        name="bankSelection" value="ICICI" onChange={(e) => setRadio(e.target.value)}
+                        name="bankSelection" value={radio.icici} onChange={(e) => radiobtn('icici')}
                       />
                     </div>
                   </div>
@@ -229,9 +255,9 @@ const BuyNow = () => {
                       <div className="details_card flex-row" style={{ marginTop: "1rem" }}>
                         <div className="card_Date flex-col">
                           <p >Valid Date</p>
-                          <div className="card_Date-months">
-                            <label> <select value={month} onChange={(e) => setMonth(e.target.value)}> {renderMonthOptions()}</select></label>
-                            <label>  <select value={year} onChange={(e) => setYear(e.target.value)}> {renderYearOptions()}</select></label>
+                          <div className="card_Date-months label_border">
+                            <label > <select value={month} onChange={(e) => setMonth(e.target.value)}> {renderMonthOptions()}</select></label>
+                            <label > <select value={year} onChange={(e) => setYear(e.target.value)}> {renderYearOptions()}</select></label>
                           </div>
                         </div>
                         <div className="card details_name cvv flex-col">
@@ -257,7 +283,7 @@ const BuyNow = () => {
                     <div className="payment_Icon">
                       <GiWallet fontSize={35} />
                     </div>
-                    <div className="payment_heading wrap"><p> UPI / Google / Apple Wallet</p></div>
+                    <div className="payment_heading wrap"><span> UPI / Google / Apple Wallet</span></div>
                   </div>
                 </div>
                 {toggleSection.onlinePay && (
@@ -273,7 +299,9 @@ const BuyNow = () => {
                       </div>
                       <div className="selection flex-col" style={{ marginTop: "1rem" }}>
                         <label htmlFor="upi">Enter Pay App*</label>
-                        <label className='label_border'><select value={year} onChange={(e) => setYear(e.target.value)}> {renderPayOptions()}</select></label>
+                        <label className='label_border'>
+                          <select value={year} onChange={(e) => setYear(e.target.value)}> {renderPayOptions()}</select>
+                        </label>
                       </div>
                       <div className="confirm_button">
                         <button type="submit">Pay ${total()}</button>
@@ -296,10 +324,10 @@ const BuyNow = () => {
             }
           </div>
           <div className="buyNow_delivery flex-row">
-            <p className="p-fade">Delivery</p>
-            <div className='flex-row'>
+            <p>Delivery</p>
+            <div className='flex-row buyNow_del-p'>
               <p>${totalQuantity === 0 ? 0 : totalPrice < 400 ? 10 : 20}</p>
-              <p className="p-fade">(Express)</p>
+              <p >(Express)</p>
             </div>
           </div>
           <div className="buyNow_total flex-row">

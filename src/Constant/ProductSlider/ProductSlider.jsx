@@ -7,7 +7,7 @@ import Modal from '../../Constant/Modal/Modal';
 const ProductSlider = ({ items }) => {
   const productContainerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(-1);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -29,18 +29,19 @@ const ProductSlider = ({ items }) => {
     const container = productContainerRef.current;
     const step = container.offsetWidth / itemsPerPage;
     const start = container.scrollLeft;
-    const end = start + step * itemsPerPage;
-    smoothScroll(container, start, end, 500);
-    setCurrentIndex(Math.min(currentIndex + itemsPerPage, items.length - 1));
+    const end = start + step;
+    const gap = 10 * itemsPerPage;
+    smoothScroll(container, start, end + gap, 500);
+    setCurrentIndex(Math.min(currentIndex + 1, items.length - 1));
   };
 
   const prevSlide = () => {
     const container = productContainerRef.current;
     const step = container.offsetWidth / itemsPerPage;
     const start = container.scrollLeft;
-    const end = start - step * itemsPerPage;
+    const end = start - step;
     smoothScroll(container, start, end, 500);
-    setCurrentIndex(Math.max(currentIndex - itemsPerPage, 0));
+    setCurrentIndex(Math.max(currentIndex - 1, 0));
   };
 
   const smoothScroll = (element, start, end, duration) => {
@@ -61,9 +62,6 @@ const ProductSlider = ({ items }) => {
     return 1 - Math.pow(1 - t, 3);
   };
 
-  const isPrevDisabled = currentIndex === 0;
-  const isNextDisabled = currentIndex >= items.length - itemsPerPage;
-
   const [showModal, setShowModal] = useState(false);
   const [passItem, setPassItem] = useState(null)
 
@@ -83,16 +81,8 @@ const ProductSlider = ({ items }) => {
           showModal && <Modal item={passItem} closeModal={closeModal} />
         }
       </div>
-      <button className='pre-btn' type="button" onClick={prevSlide}
-        style={{ display: `${isPrevDisabled ? "none" : ""}` }}
-      >
-        <MdOutlineKeyboardArrowLeft fontSize={30} />
-      </button>
-      <button className='nxt-btn' type="button" onClick={nextSlide}
-        style={{ display: `${isNextDisabled ? "none" : ""}` }}
-      >
-        <MdOutlineKeyboardArrowRight fontSize={30} />
-      </button>
+      <MdOutlineKeyboardArrowLeft className='pre-btn' onClick={prevSlide} />
+      <MdOutlineKeyboardArrowRight className='nxt-btn' onClick={nextSlide} />
       <ul className="product-container" ref={productContainerRef}>
         {items.map((item) => (
           <ShopItem key={item.id} item={item} callModal={callModal} />

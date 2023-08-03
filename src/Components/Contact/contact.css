@@ -3,9 +3,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  padding: 1rem 5rem;
-  background: var(--item-bg);
-  margin-bottom: 0.5rem;
+  padding: 1rem 5rem 1rem 5rem;
+  background: var(--bg-col);
 }
 
 .contact_heading {
@@ -15,15 +14,26 @@
 }
 
 .contact_navigation {
-  padding: 1rem 0 0 1rem;
+  padding: 0.5rem 1rem;
   font-size: 14px;
-  color: #878787;
+  color: var(--CTA-col);
   cursor: pointer;
+  width: fit-content;
+  border-bottom: 2px solid var(--primary-col);
+  border-radius: 5px;
+}
+
+.contact_navigation:hover {
+  color: var(--primary-col);
+  background-color: var(--fade-col);
 }
 
 .contact_bottom {
-  display: flex;
+  display: grid;
   gap: 1rem;
+  grid-template-columns: 20% 80%;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .contact_bottom_left {
@@ -35,7 +45,7 @@
 }
 
 .contact_left-sidebar_top {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--primary-col);
 }
 
 .contact_left-sidebar_top,
@@ -45,7 +55,6 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  background: var(--white-color);
   padding: 0.8rem 0 0;
   font-size: 15px;
 }
@@ -63,10 +72,15 @@
   line-height: 20px;
 }
 
+.contact_left-sidebar_top ul:hover>li:not(:hover),
+.contact_left-sidebar_bottom ul:hover>li:not(:hover) {
+  opacity: 0.4;
+}
+
 .contact_left-sidebar_top ul li:hover,
 .contact_left-sidebar_bottom ul li:hover {
-  background: #f5faff;
-  color: #2874f0;
+  background: var(--white-col);
+  color: #0000FF;
 }
 
 .contact_right {
@@ -77,7 +91,6 @@
 }
 
 .contact_right-bottom {
-  background: var(--white-color);
   padding-left: 1.18rem;
   padding-right: 1.18rem;
   margin-bottom: 0.5rem;
@@ -91,19 +104,20 @@
 }
 
 .Rbottom_section {
+  width: 90%;
   display: grid;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: auto auto;
   align-items: center;
   justify-content: space-between;
   padding: 16px;
   margin: 0 -16px;
-  border-bottom: 2px solid #f9f9f9;
+  border-bottom: 2px solid var(--primary-col);
   cursor: pointer;
   background: transparent;
 }
 
 .Rbottom_section:hover {
-  background: #f5faff;
+  background: var(--fade-col);
 }
 
 .section_text {
@@ -113,12 +127,12 @@
 
 
 .section_text_primary {
-  color: #212121;
+  color: var(--primary-col);
   font-size: 14px;
 }
 
 .section_text_secondary {
-  color: #878787;
+  color: var(--CTA-col);
   font-size: 12px;
   margin-top: 4px;
 }
@@ -127,11 +141,93 @@
   margin-left: auto;
 }
 
-/* .rotatesvg {
-  transform: rotate(90deg);
-} */
-
 .contact_right-bottom button {
-  background-color: transparent;
   cursor: pointer;
+  width: fit-content;
+}
+
+.Rbottom_section:last-child,
+.Bottom_section:last-child>.section {
+  border: none;
+}
+
+@media screen and (max-width:950px) {
+
+  .contact_left-sidebar_top ul li,
+  .contact_left-sidebar_bottom ul li {
+    padding: 13px 13px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width:850px) {
+
+  .contact_left-sidebar_top ul li,
+  .contact_left-sidebar_bottom ul li {
+    padding: 13px 13px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .contact_bottom {
+    grid-template-columns: 35% 65%;
+  }
+}
+
+@media screen and (max-width:650px) {
+
+  .contact_left-sidebar_top ul li,
+  .contact_left-sidebar_bottom ul li {
+    padding: 13px px 15px 13px 8px;
+    font-size: 15px;
+  }
+
+  .Rbottom_section {
+    width: 100%;
+    grid-template-columns: auto auto;
+    padding: 16px 9px;
+  }
+
+  .contact {
+    padding: 6rem 3rem 1rem 3rem;
+  }
+}
+
+@media screen and (max-width:500px) {
+
+  .contact_left-sidebar_top ul li,
+  .contact_left-sidebar_bottom ul li {
+    padding: 13px px 15px 13px 8px;
+    font-size: 15px;
+  }
+
+  .Rbottom_section {
+    width: 100%;
+    grid-template-columns: auto auto;
+    padding: 16px 9px;
+  }
+
+  .contact {
+    padding: 6rem 1rem 1rem 1rem;
+  }
+}
+
+@media screen and (max-width:380px) {
+
+  .contact_bottom {
+    grid-template-columns: 90%;
+  }
+
+  .Rbottom_section {
+    width: 100%;
+    grid-template-columns: auto auto;
+    padding: 16px 12px;
+  }
+
+  .contact {
+    padding: 6rem 1rem 1rem 1rem;
+  }
 }

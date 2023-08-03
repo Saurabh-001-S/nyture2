@@ -97,7 +97,7 @@ const Search = () => {
           <h2>{head}</h2>
           {searchResults.length !== 0 ?
             (
-              <ul className="search_result_item_container">
+              <ul className="result_ul">
                 {searchResults.map((item, i) => (
                   <ShopItem key={i} item={item} callModal={callModal} />
                 ))}
