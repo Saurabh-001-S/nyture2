@@ -1,18 +1,174 @@
 import React, { useState } from 'react'
-import { LoginSetion, SignUpPage } from "../../Constant/index";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import bcrypt from 'bcryptjs';
+import hashPassword from '../../Actions/HashPassword';
+import { Warning } from "../../Data/Images/index";
+import { AuthTrueorNot, callNotification } from '../../Store/StoreCart/StoreCart';
 
 const Login = () => {
-  const [toggleclass, setToggleclass] = useState(false)
-  const setClass = () => {
-    setToggleclass(!toggleclass);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [login, setLogin] = useState("login")
+  const [credential, setCredential] = useState({ name: '', username: '', password: '', cpassword: '' });
+  const [logcredential, setLogCredential] = useState({ username: "", password: '' })
+
+  const storeCredentials = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
   }
+
+  const createUser = async (e) => {
+    e.preventDefault();
+    let isUsernameAvailable = true;
+    for (let i = 0; i < localStorage.length; i++) {
+      const storedUsername = localStorage.key(i);
+      if (storedUsername === credential.username) {
+        isUsernameAvailable = false;
+        break;
+      }
+    }
+    document.getElementById('newUserNameError').innerHTML = "";
+    document.getElementById('newPasswordError').innerHTML = "";
+
+    // Checking another User is exist or not with same username
+    if (isUsernameAvailable) {
+      // Checking the password are same or not
+      if (credential.password === credential.cpassword) {
+        const userPassword = credential.password;
+        const hashedPassword = await hashPassword(userPassword);
+        //Store Data of New User in LocalStorage
+        storeCredentials(credential.username, {
+          name: credential.name,
+          password: hashedPassword
+        })
+        dispatch(AuthTrueorNot(true));
+        dispatch(callNotification(7));
+        navigate('/')
+      } else {
+        document.getElementById('newPasswordError').innerHTML = `
+        <img src="${Warning}" style="width: 15px;height: 15px;" atl="warrning" />
+        <span>Password is not same</span>
+      `;
+      }
+    }
+    else {
+      document.getElementById('newUserNameError').innerHTML = `
+        <img src="${Warning}" style="width: 15px;height: 15px;" atl="warrning" />
+        <span>UserName already exits</span>
+      `;
+    }
+  }
+
+  const formSubmit = async (e) => {
+    e.preventDefault();
+    document.getElementById('usernameError').textContent = "";
+    document.getElementById('passwordError').textContent = "";
+
+    const user = JSON.parse(localStorage.getItem(logcredential.username));
+    if (user === null) {
+      document.getElementById('usernameError').textContent = `
+        <img src = "${Warning}" style = "width: 15px;height: 15px;" atl = "warrning" />
+        <span>UserName is not exist</span>`
+    }
+    else {
+      const enteredPassword = logcredential.password;
+      const storedHashedPassword = user.password;
+      const isPasswordCorrect = await bcrypt.compare(enteredPassword, storedHashedPassword);
+      if (isPasswordCorrect) {
+        dispatch(AuthTrueorNot(true));
+        dispatch(callNotification(6));
+        navigate('/')
+      } else {
+        document.getElementById('passwordError').textContent = `
+        <img src = "${Warning}" style = "width: 15px;height: 15px;" atl = "warrning" />
+        <span>Password is not correct</span>
+        `;
+      }
+    }
+  };
+
+  const handleChange = (e) => {
+    setCredential({ ...credential, [e.target.name]: e.target.value });
+  };
+
+  const loghandleChange = (e) => {
+    setLogCredential({ ...logcredential, [e.target.name]: e.target.value });
+  };
 
   return (
     <>
       <div className="auth" id='auth'>
-        <div className={`wrapper  ${toggleclass ? "active" : ""}`}>
-          <LoginSetion setClass={setClass} />
-          <SignUpPage setClass={setClass} />
+        <div className='authpage'>
+          <div className="content">
+            {login === "login" ?
+              <div className="login">
+                <div className="heading">
+                  <h1>Welcome Back</h1>
+                </div>
+                <form onSubmit={formSubmit}>
+                  <div className="inputs">
+                    <input
+                      type="text" id="username" name="username" placeholder="Username or gmail"
+                      value={logcredential.username} onChange={loghandleChange} required
+                    />
+                    <p id='usernameError'>
+
+                    </p>
+                  </div>
+                  <div className="inputs">
+                    <input
+                      type="password" id="password" name="password" placeholder="Password"
+                      value={logcredential.password} onChange={loghandleChange} required
+                    />
+                    <p id='passwordError'></p>
+                  </div>
+                  <div className="btn">
+                    <button type="submit">Submit</button>
+                  </div>
+                </form>
+                <div className='linkpage'>
+                  <button type='button' onClick={() => setLogin("signup")}>Resgister?</button>
+                </div>
+              </div>
+              :
+              <div className="signup">
+                <div className="heading">
+                  <h1>SignUp</h1>
+                </div>
+                <form onSubmit={createUser} >
+                  <div className="inputs">
+                    <input type="text" id="name" name="name" placeholder="Name"
+                      value={credential.name} onChange={handleChange} required
+                    />
+                  </div>
+                  <div className="inputs">
+                    <input type="text" id="username" name="username" placeholder="Username"
+                      value={credential.username} onChange={handleChange} required
+                    />
+                    <p id='newUserNameError'></p>
+                  </div>
+                  <div className="inputs">
+                    <input type="password" id="password" name="password" placeholder="Password"
+                      value={credential.password} onChange={handleChange} required
+                    />
+                  </div>
+                  <div className="inputs">
+                    <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password"
+                      value={credential.cpassword} onChange={handleChange} required
+                    />
+                    <p id='newPasswordError'></p>
+                  </div>
+                  <div className="btn">
+                    <button type="submit">Submit</button>
+                  </div>
+                </form>
+                <div className='linkpage'>
+                  <button type='button' onClick={() => setLogin("login")}>Have an account?</button>
+                </div>
+              </div>
+            }
+          </div>
         </div>
       </div>
     </>

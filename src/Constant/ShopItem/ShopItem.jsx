@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart, buyNow } from '../../Store/StoreCart/StoreCart';
-import { Link } from 'react-router-dom';
+import { addToCart, buyNow, showItemDetails } from '../../Store/StoreCart/StoreCart';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineAlignRight } from "react-icons/ai";
 import { star, Emptystar } from "../../Data/Images/index";
 import './shopitem.css';
@@ -10,6 +10,7 @@ import { GrCart } from "react-icons/gr";
 
 const ShopItem = ({ item, callModal }) => {
    const dispatch = useDispatch();
+   let navigate = useNavigate();
 
    const OnClickCallBack = (id) => {
       if (id === 0) {
@@ -36,22 +37,27 @@ const ShopItem = ({ item, callModal }) => {
 
       return ratingStars;
    };
+   // const showProductDetails = () => {
+   //    dispatch(showItemDetails(item));
+   //    navigate('/itemDetails');
+   // }
 
    return (
-      <li className='shopItem'>
-         <div className="shopItem_glassBg">
+      <div className='shopItem'>
+         <div className="shopItem_glassBg" >
             <div className="r1_rating">
                <p className='rating_star'>{showRating()}</p>
-               <GrCart fontSize='28' onClick={() => OnClickCallBack(0)} />
+               <GrCart fontSize='28' color='#219ebcff' onClick={() => OnClickCallBack(0)} />
             </div>
 
-            <div className="r2_img">
+            <div className="r2_img" >
+               {/* <div className="r2_img" onClick={showProductDetails}> */}
                <LazyImgLoad src={item.img} CName={'img'} />
             </div>
 
             <div className="r3_detail flex-col">
                <div className="r3_title">
-                  <p>{item.name.slice(0, 50)}</p>
+                  <p>{item.name}</p>
                </div>
 
                <div className="r3_ordernow flex-row">
@@ -66,10 +72,9 @@ const ShopItem = ({ item, callModal }) => {
                      </button>
                   </div>
                </div>
-
             </div>
          </div>
-      </li>
+      </div>
    )
 }
 

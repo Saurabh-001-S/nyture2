@@ -1,12 +1,12 @@
 .navbar {
   position: relative;
   z-index: 5;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 }
 
 .navbar nav {
   display: flex;
-  padding: 0 1rem;
+  padding: 1rem;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -20,13 +20,13 @@
 .navbar_left {
   display: flex;
   justify-content: flex-start;
-  padding: 1rem 2rem;
-  color: var(--black-col);
-  transition: font-size 0.5s ease alternate;
+  transition: all 300ms ease alternate;
 }
 
 .nvLeft_h1 {
-  font-size: 40px;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  color: var(--secondry-accent);
 }
 
 .navbar_mid ul {
@@ -36,18 +36,44 @@
   justify-content: center;
 }
 
+.navbar_toggleMenu-links li,
+.navbar_mid ul li {
+  position: relative;
+  width: fit-content;
+}
+
+.navbar_toggleMenu-links li a,
+.navbar_mid ul li a {
+  display: inline-block;
+  padding: 0.3rem 0;
+}
+
+.navbar_toggleMenu-links li a::before,
+.navbar_mid ul li a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 5px;
+  background-color: var(--secondry-accent);
+  bottom: 0;
+  transition: width 200ms ease-in;
+}
+
+.navbar_toggleMenu-links li:hover a::before,
+.navbar_mid ul li:hover a::before {
+  width: 100%;
+}
+
+.navbar_right a svg,
+.navbar_mid li a,
+.navbar_toggleMenu-links li a {
+  color: var(--primary-accent);
+}
+
 .navbar_right {
   display: flex;
   gap: 2rem;
   justify-content: center;
-}
-
-.cartItem {
-  position: relative;
-  top: 3px;
-  right: 17px;
-  color: red;
-  font-weight: 700;
 }
 
 .navbar_toggleMenu {
@@ -68,7 +94,7 @@
   transition: 0.8s ease;
 
   display: flex;
-  background: #f7f6f6;
+  background: var(--gray-100);
   flex-direction: column;
   align-items: flex-end;
   padding: 1rem;
@@ -79,7 +105,15 @@
   position: absolute;
   top: 24px;
   right: 30px;
-  color: var(--primary-col);
+  color: var(--secondry-accent);
+}
+
+.navbar_toggleMenu svg {
+  color: var(--secondry-accent);
+}
+
+nav svg:hover {
+  color: var(--secondry-text);
 }
 
 .navbar_toggleMenu-links {
@@ -95,16 +129,12 @@
   gap: 1.5rem;
 }
 
+.navbar_toggleMenu-links li {
+  margin: auto;
+}
+
 .navbar_toggleMenu-links a {
   margin: 0;
-}
-
-.navbar_toggleMenu-links li:hover {
-  color: var(--color-white);
-}
-
-nav:hover a:not(:hover) {
-  opacity: 0.2;
 }
 
 @media screen and (max-width: 1150px) {
@@ -132,11 +162,6 @@ nav:hover a:not(:hover) {
 
   .navbar_right {
     display: none;
-  }
-
-  .navbar_left {
-    padding: 1.5rem 0;
-    font-size: 30px;
   }
 
   .navbar_toggleMenu-overlay {
@@ -180,15 +205,14 @@ nav:hover a:not(:hover) {
   box-sizing: border-box;
   position: fixed;
   z-index: 999999;
-  padding-top: 2.5rem;
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
 }
 
 .top-right {
-  top: 12px;
-  right: 12px;
+  top: 70px;
+  right: 10px;
   transition: transform 0.3s ease-in-out;
   animation: toast-in-right 0.4s;
 }
@@ -204,11 +228,11 @@ nav:hover a:not(:hover) {
 }
 
 .notification {
-  background: var(--accent-col);
+  --_titl-width: 300px;
+  background: var(--white);
   transition: 0.3s ease;
   pointer-events: auto;
-  width: 300px;
-  border-radius: 3px;
+  width: var(--_titl-width);
   box-shadow: 0 0 10px #999;
   opacity: 0.9;
   background-position: 15px;
@@ -222,10 +246,95 @@ nav:hover a:not(:hover) {
 }
 
 .notification-title {
-  font-weight: 700;
+  font-weight: 300;
   font-size: 16px;
   text-align: left;
-  width: 300px;
-  color: var(--black-col);
+  width: var(--_titl-width);
+  color: var(--third-text);
   padding: 1rem;
+  position: relative;
+}
+
+.notification-title::after {
+  content: '';
+  position: absolute;
+  width: var(--_titl-width);
+  height: 10px;
+  left: 0;
+  background: var(--third-accent);
+  background: linear-gradient(90deg, var(--third-accent), var(--secondry-accent), var(--third-text));
+  bottom: 0px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+
+@media screen and (max-width:750px) {
+  .notification {
+    --_titl-width: 250px;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .notification {
+    --_titl-width: 200px;
+  }
+
+  .notification-title {
+    font-size: 0.75rem;
+    padding: .75rem;
+  }
+
+  .notification-title::after {
+    height: 7px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rotate-center {
+  -webkit-animation: slide-down .3s ease-in-out both;
+  animation: slide-down .3s ease-in-out both;
+  transform-origin: 50% 50%;
+  color: var(--CTA);
+}
+
+@keyframes slide-down {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes slide-down {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }

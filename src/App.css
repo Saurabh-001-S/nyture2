@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&family=Oswald:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 * {
   padding: 0;
@@ -9,20 +8,32 @@
   list-style: none;
   text-decoration: none;
   scroll-behavior: smooth;
-  transition: all 0.3s ease-in-out;
 }
 
 :root {
-  --primary-col: #0C213C;
-  --secondry-col: #2A4057;
-  --accent-col: #5C7D8E;
-  --bg-col: #ffffff;
-  --CTA-col: #112d3a;
-  --white-col: #FFF;
-  --fade-col: #d8d3d382;
-  --black-col: #000;
-  --main-font: 'Playfair Display SC', serif;
-  --paragraph-font: 'Oswald', sans-serif;
+  --primary-accent: #1d3557ff;
+  --secondry-accent: #457b9dff;
+  --third-accent: #023047ff;
+  --primary-text: #f1faeeff;
+  --secondry-text: #a8dadcff;
+  --third-text: #219ebcff;
+  --CTA: #e63946ff;
+
+  --white: #FFF;
+  --black: #17171b;
+
+  --gray-0: #f8f9faff;
+  --gray-50: #e9ecefff;
+  --gray-100: #dee2e6ff;
+  --gray-200: #ced4daff;
+  --gray-300: #adb5bdff;
+  --gray-400: #6c757dff;
+  --gray-600: #495057ff;
+  --gray-700: #343a40ff;
+  --gray-800: #212529ff;
+
+  --main-font: 'Rajdhani', sans-serif;
+  --p-font: 'Lato', sans-serif;
 }
 
 h1,
@@ -31,19 +42,19 @@ h3,
 h4,
 h6 {
   font-family: var(--main-font);
-  color: var(--accent-col);
+  color: var(--secondry-text);
   font-weight: 800;
 }
 
 a {
   font-weight: 500;
-  font-family: var(--main-font);
-  color: var(--primary-col);
+  font-family: var(--p-font);
 }
 
-p {
-  font-family: var(--paragraph-font);
-  color: var(--accent-col);
+p,
+label {
+  font-family: var(--p-font);
+  font-weight: 300;
 }
 
 
@@ -55,28 +66,8 @@ button {
   border: none;
 }
 
-button::after {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  transform: scaleX(0);
-  transform-origin: left;
-  background: var(--bg-col);
-  transition: transform 0.3s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
 button:focus {
   outline: none;
-}
-
-
-button:hover::after {
-  transform: scaleX(1);
 }
 
 .flex-col {
@@ -92,4 +83,16 @@ button:hover::after {
   flex-direction: row;
   align-items: flex-start;
   gap: 0.52rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--gray-400);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--third-accent);
 }

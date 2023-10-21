@@ -1,11 +1,11 @@
 .shopItem {
       min-width: 250px;
-      height: 500px;
-      border: 0.2px solid #0000002f;
+      height: 470px;
+      border: 0.2px solid var(--primary-accent);
+      border-radius: 5px;
 }
 
 .shopItem_glassBg {
-      box-shadow: -1px -1px 5px var(--black-col);
       border: none;
       width: 100%;
       height: 100%;
@@ -13,7 +13,6 @@
       gap: 1rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: self-start;
 }
 
@@ -38,9 +37,13 @@
       object-fit: contain;
 }
 
+.r1_rating svg path {
+      stroke: var(--secondry-accent);
+}
+
 .r2_img {
       width: 100%;
-      max-height: 300px;
+      height: 300px;
       padding: 1rem 0;
       object-fit: cover;
       object-position: center;
@@ -56,11 +59,23 @@
       width: 100%;
 }
 
+.r3_title p {
+      color: var(--secondry-accent);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+}
+
 .r3_ordernow {
       width: 100%;
       justify-content: space-between;
       align-items: center;
 
+}
+
+.r3_btn svg {
+      color: var(--secondry-accent);
 }
 
 .price {
@@ -71,18 +86,17 @@
 }
 
 .price .discount_price {
-      color: var(--primary-col);
-      font-size: 17px;
-      font-weight: 700;
-
+      color: var(--third-accent);
+      font-size: 1.1rem;
+      font-weight: 500;
+      font-family: var(--main-font);
 }
 
 .price .original_price {
-      font-size: 13px;
-      color: var(--secondry-col);
+      font-size: 0.75em;
+      color: var(--CTA);
       font-style: italic;
       text-decoration: line-through;
-      opacity: 0.7;
 }
 
 .r3_btn {
@@ -92,10 +106,22 @@
 
 
 .r3_btn button {
-      background: var(--accent-col);
-      box-shadow: 0 0 2px var(--black-col);
+      border: 2px solid var(--third-accent);
+      color: var(--third-accent);
+      background: transparent;
+}
+
+.r3_btn button:hover {
+      box-shadow: 2px 2px 5px 3px var(--gray-300);
 }
 
 .r3_btn button a {
       color: var(--primary-col);
+}
+
+@media screen and (max-width:300px) {
+      .shopItem {
+            min-width: 230px;
+      }
+
 }

@@ -30,7 +30,7 @@ export default {
     {
       id: 1001,
       question: "How do I track my Flipcart order?",
-      des: "Go to My Order  in your Nyture account to track your package."
+      des: "Go to My Order  in your Nyture account to track your package.",
     },
     {
       id: 1002,

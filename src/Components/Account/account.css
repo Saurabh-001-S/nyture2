@@ -1,7 +1,6 @@
 .account_container {
    width: 100%;
-   background: var(--bg-col);
-   border-bottom: 2px solid var(--primary-col);
+   padding: 1.5rem 0;
 }
 
 .account {
@@ -15,9 +14,9 @@
 }
 
 .acount_heading h2 {
-   font-size: 35px;
+   font-size: 2rem;
    font-weight: 800;
-   color: var(--secondry-col);
+   color: var(--secondry-accent);
 }
 
 .account_info {
@@ -28,12 +27,9 @@
    gap: 1rem;
 }
 
-.account_details:hover>.detailsbox:not(:hover) {
-   opacity: 0.3;
-}
-
-.account_details:hover>.detailsbox:hover {
-   transform: scale(1.05);
+.account_details:hover>.detailsbox:hover,
+.account_details:hover>.detailsbox:focus {
+   transform: scale(1.001);
    transition: transform 0.1s ease-in both;
 }
 
@@ -45,14 +41,14 @@
 }
 
 .detailsbox {
-   border: 2px solid;
+   border: 2px solid var(--gray-100);
    border-radius: 10px;
    height: 110px;
    width: 350px;
 }
 
 .detailsbox :hover {
-   background-color: var(--bg-col);
+   background-color: var(--gray-50);
 }
 
 .detailsbox_a {
@@ -79,12 +75,12 @@
 .detailsbox_details h4 {
    padding-bottom: 0.5rem;
    font-size: 20px;
-   color: var(--secondry-col);
+   color: var(--third-text);
 }
 
 .detailsbox_details p {
    font-size: 17px;
-   color: var(--primary-col);
+   color: var(--secondry-accent);
 }
 
 .border_section {
@@ -95,23 +91,15 @@
 
 
 .other_details {
-   border: 2px solid;
+   border: 2px solid var(--gray-100);
    border-radius: 10px;
    padding: 1rem;
    width: 350px;
 }
 
-.details_subHeading:hover>a:not(:hover) {
-   opacity: 0.3;
-}
-
-.details_subHeading:hover>a:hover {
-   color: var(--primary-col);
-   transform: scaleX(1.05);
-   transition: transform 0.1s ease-in;
-}
 
 .details_heading h3 {
+   color: var(--third-text);
    padding-bottom: 0.5rem;
    font-size: 20px;
    font-weight: 600;
@@ -123,11 +111,20 @@
 }
 
 .details_subHeading a {
-   color: var(--primary-col);
+   color: var(--secondry-accent);
    font-size: 1.1rem;
    padding: 0.2rem 0;
    cursor: pointer;
-   font-weight: 600;
+}
+
+.details_subHeading:hover>a:not(:hover) {
+   opacity: 0.3;
+}
+
+.details_subHeading:hover>a:hover {
+   color: var(--primary-accent);
+   transform: scaleX(1.005);
+   transition: transform 0.1s ease-in;
 }
 
 @media screen and (max-width:1090px) {
