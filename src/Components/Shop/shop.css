@@ -50,6 +50,7 @@
    .shop-ul {
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       grid-gap: 1rem;
+      padding: 0 1rem;
    }
 
 }

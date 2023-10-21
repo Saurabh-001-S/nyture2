@@ -47,13 +47,15 @@ const ShoppingCart = () => {
           <p>Your order is eligible for FREE Delivery.</p>
         </div>
         <div className="total_details">
-          <h3>Subtotal {totalQuantity}:</h3>
-          <p>$ {totalPrice}</p>
+          <h3>Subtotal :</h3>
+          <p>${totalPrice}</p>
         </div>
-        <button onClick={() => dispatch(buyAllCartItem(items))}>
-          <Link to='/buy'>Buy Now</Link>
-        </button>
-        <p >EMI : {totalPrice > 500 ? 'Aaailable' : 'Unavailable'}</p>
+        <div className="shopCRButton">
+          <button onClick={() => dispatch(buyAllCartItem(items))}>
+            <Link to='/buy'>Buy Now</Link>
+          </button>
+        </div>
+        <p >EMI : {totalPrice > 500 ? 'Available' : 'Unavailable'}</p>
       </div>
     </div >
   )

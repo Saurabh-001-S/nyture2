@@ -129,7 +129,7 @@ const BuyNow = () => {
         <div className="buyNow_body-left flex-col">
           <div className="buyNow_info">
             <div className="buyNow_login">
-              <div className="buyNow_login_head ">
+              <div className="buyNow_login_head">
                 <p>LOGIN</p>
                 <div className="buyNow_login-info flex-row">
                   <h3>Sanjay Sahu</h3>
@@ -141,7 +141,7 @@ const BuyNow = () => {
               <div className="buyNow_login_head">
                 <p>SHIPPING ADDRESS</p>
                 <div className="buyNow_address-info flex-row">
-                  <h3>Bandra ,Phase-4,H.No-4752</h3>
+                  <h3>H.No-4752 ,Phase-4,Bandra </h3>
                   <h3>Mumbai,222102</h3>
                 </div>
               </div>
@@ -173,7 +173,7 @@ const BuyNow = () => {
                       </div>
                       <div className="details_name flex-col">
                         <input type="text" value={CardNo} onChange={(e) => setCardNo(e.target.value)}
-                          maxlength="12" size="10" required />
+                          maxLength="12" size="10" required />
                         <label htmlFor="name">Card Number*</label>
                       </div>
                       <div className="details_card flex-row" style={{ marginTop: "1rem" }}>
@@ -181,12 +181,12 @@ const BuyNow = () => {
                           <p htmlFor="date">Valid Date</p>
                           <div className="card_Date-months label_border">
                             <label> <select value={month} onChange={(e) => setMonth(e.target.value)}> {renderMonthOptions()}</select></label>
-                            <label>  <select value={year} onChange={(e) => setYear(e.target.value)}> {renderYearOptions()}</select></label>
+                            <label><select value={year} onChange={(e) => setYear(e.target.value)}> {renderYearOptions()}</select></label>
                           </div>
                         </div>
                         <div className="card details_name cvv flex-col">
                           <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)}
-                            maxlength="3" size="10" required />
+                            maxLength="3" size="10" required />
                           <label>CVV *</label>
                         </div>
                       </div>
@@ -249,7 +249,7 @@ const BuyNow = () => {
                       </div>
                       <div className="details_name flex-col">
                         <input type="text" value={CardNo} onChange={(e) => setCardNo(e.target.value)}
-                          maxlength="12" size="10" required />
+                          maxLength="12" size="10" required />
                         <label htmlFor="number">Enter Card Number*</label>
                       </div>
                       <div className="details_card flex-row" style={{ marginTop: "1rem" }}>
@@ -262,7 +262,7 @@ const BuyNow = () => {
                         </div>
                         <div className="card details_name cvv flex-col">
                           <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)}
-                            maxlength="3" size="10" required />
+                            maxLength="3" size="10" required />
                           <label>CVV* </label>
                         </div>
                       </div>
@@ -283,7 +283,7 @@ const BuyNow = () => {
                     <div className="payment_Icon">
                       <GiWallet fontSize={35} />
                     </div>
-                    <div className="payment_heading wrap"><span> UPI / Google / Apple Wallet</span></div>
+                    <div className="payment_heading"><span> UPI / Google / Apple Wallet</span></div>
                   </div>
                 </div>
                 {toggleSection.onlinePay && (
@@ -324,10 +324,9 @@ const BuyNow = () => {
             }
           </div>
           <div className="buyNow_delivery flex-row">
-            <p>Delivery</p>
+            <p>Delivery Charge</p>
             <div className='flex-row buyNow_del-p'>
               <p>${totalQuantity === 0 ? 0 : totalPrice < 400 ? 10 : 20}</p>
-              <p >(Express)</p>
             </div>
           </div>
           <div className="buyNow_total flex-row">

@@ -20,6 +20,7 @@ const Search = lazy(() => import('./Search/Search'));
 const Login = lazy(() => import('./Login/Login'));
 const Shop = lazy(() => import('./Shop/Shop'));
 const Home = lazy(() => import('./Home/Home'));
+const ItemDetail = lazy(() => import('./ItemDetail/ItemDetail'))
 
 export {
       ShoppingCart,
@@ -31,5 +32,6 @@ export {
       Search,
       Login,
       Shop,
-      Home
+      Home,
+      ItemDetail
 };

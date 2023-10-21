@@ -2,12 +2,13 @@
       display: grid;
       grid-template-columns: 1.5fr 1fr 1fr 1fr;
       padding: 2rem 1.5rem;
-      background-color: var(--item-bg);
+      background-color: var(--gray-50);
       justify-content: center;
 }
 
 .heading {
       padding: 1.5rem 0;
+      color: var(--secondry-accent);
 }
 
 .footer_social-links {
@@ -17,10 +18,10 @@
 }
 
 .footer_social-links a {
-      border: 2px solid var(--CTA-col);
+      border: 2px solid var(--gray-100);
       border-radius: 50%;
       padding: 1rem;
-      box-shadow: 0px 0px 4px var(--black-col);
+      box-shadow: 0px 0px 4px var(--primary-text);
       width: 70px;
       position: relative;
       z-index: 1;
@@ -33,16 +34,16 @@
 .footer_social-links a::after {
       content: "";
       position: absolute;
-      border: 2px solid var(--CTA-col);
+      border: 2px solid var(--gray-100);
       border-radius: 50%;
       padding: 1.5rem;
-      box-shadow: 0px 0px 4px var(--black-col);
+      box-shadow: 0px 0px 4px var(--black);
       z-index: 2;
 }
 
 .footer_social-links svg {
       margin: auto;
-      color: var(--CTA-col);
+      color: var(--secondry-accent);
       position: absolute;
       z-index: 3;
       width: 100%;
@@ -51,11 +52,11 @@
 }
 
 .footer_social-links svg:hover {
-      color: var(--white-col);
+      color: var(--secondry-accent);
 }
 
 .footer_social-links a:hover::after {
-      background-color: var(--primary-col);
+      background-color: var(--primary-text);
       animation: rotate-diagonal-1 0.5s linear both;
 }
 
@@ -74,16 +75,16 @@
 }
 
 .footer_text {
-      font-family: var(--paragraph-font);
-      color: var(--secondry-col);
-      font-size: 18px;
+      font-family: var(--p-font);
+      color: var(--third-accent);
+      font-size: 1.2rem;
+      line-height: 1.3;
       font-weight: 600;
       cursor: pointer;
 }
 
 .footer_text:hover {
-      color: var(--primary-col);
-      scale: 1.1;
+      scale: 1.05;
 }
 
 @media screen and (max-width:850px) {
@@ -95,6 +96,14 @@
       .footer_social-links {
             flex-wrap: wrap;
       }
+
+      .heading {
+            font-size: 1.4rem;
+      }
+
+      .footer_text {
+            font-size: 1rem;
+      }
 }
 
 @media screen and (max-width:350px) {
@@ -102,6 +111,14 @@
             grid-template-columns: 1fr;
             gap: 2rem;
             align-items: center;
+      }
+
+      .heading {
+            font-size: 1.2rem;
+      }
+
+      .footer_text {
+            font-size: 0.80rem;
       }
 }
 

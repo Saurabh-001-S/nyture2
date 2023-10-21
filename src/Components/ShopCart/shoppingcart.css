@@ -1,35 +1,42 @@
 .shopCart {
-      padding: 1.5rem 5rem;
+      padding: 2.5rem 5rem;
       margin-bottom: 1rem;
       display: grid;
-      grid-template-columns: 4fr 1fr;
+      grid-template-columns: 70% 30%;
       gap: 1rem;
       height: max-content;
 }
 
 .shopCart_left {
-      background-color: var(--item-bg);
       display: flex;
-      padding: 1rem;
       display: flex;
       flex-direction: column;
 }
 
 .shopCart_heading {
-      border-bottom: 3px solid #000000;
+      border-bottom: 3px solid var(--third-text);
       margin-bottom: 1rem;
+}
+
+.shopCart_heading h1 {
+      color: var(--third-text);
 }
 
 .shopCart_heading p {
       display: flex;
       flex-direction: row-reverse;
+      color: var(--primary-accent);
 }
 
 .shopCart_heading button {
       background: transparent;
-      color: blue;
+      color: var(--secondry-accent);
       cursor: pointer;
       padding: 0;
+}
+
+.shopCart_heading button:hover {
+      color: var(--third-accent);
 }
 
 .shopCart_right {
@@ -47,12 +54,13 @@
       gap: 0.2rem;
 }
 
-.shopcart-delivery input {
+.shopcart-delivery input[type="checkbox"] {
       margin: 0.1rem 0;
+      accent-color: var(--third-text);
 }
 
 .shopcart-delivery p {
-      color: #347b34;
+      color: var(--primary-accent);
 }
 
 .total_details-reverse {
@@ -60,6 +68,18 @@
       gap: 0.5rem;
       justify-content: flex-end;
       align-items: center;
+}
+
+.total_details-reverse h3,
+.total_details h3 {
+      color: var(--secondry-accent);
+      font-size: 1.2rem;
+}
+
+.total_details-reverse p,
+.total_details p {
+      color: var(--third-accent);
+      font-size: 1rem;
 }
 
 .total_details {
@@ -73,25 +93,84 @@
       font-size: 16px;
 }
 
-.shopCart_right button {
+.shopCart_right .shopCRButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.shopCart_right .shopCRButton button {
       width: 100%;
       margin: 0.8rem auto;
-      background: var(--accent-col);
-      box-shadow: 0 0 2px var(--black-col);
+      background: var(--secondry-accent);
+      border-radius: 3px;
+      border: 2px solid var(--secondry-accent);
+}
+
+.shopCart_right .shopCRButton button:hover {
+      background-color: var(--white);
+}
+
+.shopCRButton button a {
+      font-size: 1.1rem;
+      color: var(--third-accent);
+}
+
+.shopCart_right>p:last-child {
+      color: var(--third-text);
+      font-size: .8rem;
+}
+
+@media screen and (max-width:1150px) {
+      .shopCart {
+            padding: 2rem 3rem;
+      }
 }
 
 @media screen and (max-width:770px) {
       .shopCart {
-            padding: 1rem;
-            grid-template-columns: 3fr 1.2fr;
+            grid-template-columns: 100%;
+      }
+
+      .shopCart {
+            padding: 2rem 1rem;
       }
 
       .total_details {
             gap: 0.1rem;
       }
 
-      .total_details h3,
+      .total_details-reverse h3,
+      .total_details h3 {
+            font-size: 1.1rem;
+      }
+
+      .total_details-reverse p,
       .total_details p {
-            font-size: 13.5px;
+            font-size: .95rem;
+      }
+}
+
+@media screen and (max-width:500px) {
+      .shopCart_heading h1 {
+            font-size: 1.5rem;
+      }
+
+      .shopCart_heading button {
+            font-size: .85rem;
+      }
+
+      .total_details-reverse h3,
+      .total_details h3 {
+            font-size: 1rem;
+      }
+
+      .total_details-reverse p,
+      .total_details p {
+            font-size: .85rem;
+      }
+
+      .shopCRButton button a {
+            font-size: .85rem;
       }
 }

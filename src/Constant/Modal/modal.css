@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   z-index: 9999999;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.525);
   width: 100vw;
   height: 100vh;
   overflow: auto;
@@ -17,7 +17,7 @@
   width: 60%;
   max-width: 800px;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -47,6 +47,7 @@
 .details_p {
   padding: 0.5rem 0;
   font-size: 18px;
+  color: var(--third-text);
 }
 
 .modal_price {
@@ -59,20 +60,20 @@
 }
 
 .modal_price .discount_price {
-  color: var(--primary-col);
+  color: var(--primary-accent);
   font-size: 20px;
   font-weight: 700;
 }
 
 .modal_price .original_price {
   font-size: 15px;
-  color: var(--CTA-col);
+  color: var(--CTA);
   text-decoration: line-through;
 }
 
 .modal_detail h1 {
   font-size: 24px;
-  color: var(--bg-color-2);
+  color: var(--secondry-accent);
   margin-bottom: 1rem;
 }
 
@@ -86,6 +87,11 @@
 .modal_det_btn svg {
   cursor: pointer;
   transition: all 0.2s ease;
+  color: var(--secondry-accent);
+}
+
+.modal_det_btn svg path {
+  stroke: var(--secondry-accent);
 }
 
 .modal_det_btn svg:hover {
@@ -93,28 +99,33 @@
 }
 
 .modal_det_btn button {
+  font-size: 1rem;
+  font-family: var(--p-font);
   padding: 0.5rem 1rem;
-  color: var(--primary-col);
-  background: var(--accent-col);
+  background: transparent;
   cursor: pointer;
-  border: 1px solid var(--accent-col);
-  border-radius: 10px;
+  border: 2px solid var(--third-accent);
+  border-radius: 5px;
+  font-weight: 500;
 }
 
-.modal_det_btn button:focus,
-.modal_det_btn button:hover {
-  outline: none;
-  color: var(primary-col);
+.modal_det_btn button a {
+  color: var(--secondry-accent);
+}
+
+.modal_det_btn button:focus a,
+.modal_det_btn button:hover a {
+  color: var(--primary-accent);
 }
 
 .close-icon {
   font-size: 24px;
-  color: var(--primary-col);
+  color: var(--secondry-accent);
   cursor: pointer;
 }
 
 .close-icon:hover {
-  color: #FF0000;
+  color: var(--CTA);
   scale: 1.2;
 }
 

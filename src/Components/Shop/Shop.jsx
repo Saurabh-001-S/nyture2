@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ShopItem } from "../../Constant/index";
 import Modal from '../../Constant/Modal/Modal';
 
@@ -28,22 +28,7 @@ const Shop = () => {
       </div>
       <ul className='shop-ul'>
         {
-          items.singlesofa.map((item) => (
-            <ShopItem key={item.id} item={item} callModal={callModal} />
-          ))
-        }
-        {
-          items.sofa.map((item) => (
-            <ShopItem key={item.id} item={item} callModal={callModal} />
-          ))
-        }
-        {
-          items.stool.map((item) => (
-            <ShopItem key={item.id} item={item} callModal={callModal} />
-          ))
-        }
-        {
-          items.chair.map((item) => (
+          items.map((item) => (
             <ShopItem key={item.id} item={item} callModal={callModal} />
           ))
         }

@@ -64,7 +64,7 @@ const Modal = ({ item, closeModal }) => {
           <img src={item.img} id="imgload" className="img" alt="image" />
         </div>
         <div className="modal_detail">
-          <h1>{item.name.slice(0, 50)}</h1>
+          <h1>{item.name}</h1>
           <p className='details_p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, aliquam et iure placeat maxime, ratione repudiandae quam dolor cum sit assumenda incidunt.</p>
           <p className='rating_star'>{showRating()}</p>
           <p className='modal_price  flex-row'>
