@@ -88,8 +88,8 @@
   font-size: 2rem;
   align-items: center;
 }
-.offerlist-container {
-}
+
+.offerlist-container {}
 
 .offer_list {
   border-radius: 5px;
@@ -102,9 +102,11 @@
   font-size: 0.8rem;
   color: var(--third-text);
 }
+
 .list_description {
   font-size: 0.75rem;
 }
+
 .list_offerNum {
   font-size: 0.8rem;
   color: var(--CTA);
@@ -166,6 +168,7 @@
   font-size: var(--_iconFont);
   color: var(--_iconColor);
 }
+
 #WARRANTY svg path {
   stroke: var(--_iconColor);
 }

@@ -31,5 +31,5 @@ import Warning from "./warning.png";
 export {
       Home1, Home2, Home3, Home4, Home5, sofaBedio, Special_img,
       s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13,
-      star, Emptystar,Bedroom1, Bedroom2, Bedroom3, Livingroom, Office, LRoomMain,Warning
+      star, Emptystar, Bedroom1, Bedroom2, Bedroom3, Livingroom, Office, LRoomMain, Warning
 }

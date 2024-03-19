@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart, buyNow, showItemDetails } from '../../Store/StoreCart/StoreCart';
 import { Link, useNavigate } from 'react-router-dom';
+import { addToCart, buyNow, showItemDetails } from '../../Store/StoreCart/StoreCart';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineAlignRight } from "react-icons/ai";
 import { star, Emptystar } from "../../Data/Images/index";
 import './shopitem.css';
@@ -10,6 +12,7 @@ import { GrCart } from "react-icons/gr";
 
 const ShopItem = ({ item, callModal }) => {
    const dispatch = useDispatch();
+   let navigate = useNavigate();
    let navigate = useNavigate();
 
    const OnClickCallBack = (id) => {
@@ -45,8 +48,11 @@ const ShopItem = ({ item, callModal }) => {
    return (
       <div className='shopItem'>
          <div className="shopItem_glassBg" >
+      <div className='shopItem'>
+         <div className="shopItem_glassBg" >
             <div className="r1_rating">
                <p className='rating_star'>{showRating()}</p>
+               <GrCart fontSize='28' color='#219ebcff' onClick={() => OnClickCallBack(0)} />
                <GrCart fontSize='28' color='#219ebcff' onClick={() => OnClickCallBack(0)} />
             </div>
 
@@ -75,6 +81,7 @@ const ShopItem = ({ item, callModal }) => {
                </div>
             </div>
          </div>
+      </div>
       </div>
    )
 }
