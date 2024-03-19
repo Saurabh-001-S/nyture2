@@ -58,11 +58,6 @@ const ShopItem = ({ item, callModal }) => {
             color="#219ebcff"
             onClick={() => OnClickCallBack(0)}
           />
-          <GrCart
-            fontSize="28"
-            color="#219ebcff"
-            onClick={() => OnClickCallBack(0)}
-          />
         </div>
 
         <div className="r2_img">
