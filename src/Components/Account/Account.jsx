@@ -1,61 +1,34 @@
-import { useLockBodyScroll } from "@uidotdev/usehooks";
 import DeleviryBox from "./DeleviryBox.png";
-import { RxCross1 } from 'react-icons/rx';
 import { useSelector } from 'react-redux';
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import Location from "./Location.png";
 import Security from "./Security.png";
-import { Login } from "../index";
 import Prime from "./Prime.png";
 import Card from "./Card.png";
 import Pays from "./Pays.png";
-
-const Modal = ({ closeModal }) => {
-  useLockBodyScroll()
-  return (
-    <div className='container'>
-      <RxCross1 fontSize={32} color='red' onClick={closeModal} id='closeModal' />
-      <Login />
-    </div>
-  )
-}
+import { useEffect } from "react";
 
 const Account = () => {
   const { UserloginOrNot } = useSelector((state) => state.allCart);
-
-  const [toggleModal, setToggleModal] = useState(false)
-  const modol = () => {
-    if (UserloginOrNot) {
-      setToggleModal(true)
-      const account = document.querySelector('.account')
-      account.style.opacity = "0.4";
-      document.querySelector('.navbar').classList.add("inactive")
+  const navigation = useNavigate()
+  useEffect(() => {
+    if (UserloginOrNot === false) {
+      navigation('/login')
     } else {
-      alert("You already Login")
+      navigation('/userinfo')
     }
-  }
-
-  const closeModal = () => {
-    setToggleModal(false)
-    const account = document.querySelector('.account')
-    account.style.opacity = "1";
-    document.querySelector('.navbar').classList.remove("inactive")
-  }
-
+  }, [UserloginOrNot])
   return (
     <div className="account_container">
-      <div className="overlay_section" style={{ display: `${toggleModal ? "flex" : "none"}` }}>
-        {toggleModal && < Modal closeModal={closeModal} />}
-      </div>
-      <div className={`account ${toggleModal ? "inactive" : ""}`} id='account'>
+      <div id='account'>
         <div className="acount_heading">
           <h2>Your Account</h2>
         </div>
         <div className='account_info'>
           <div className="account_details">
             <div className="detailsbox">
-              <Link to="#" className='detailsbox_a' onClick={modol}>
+              <Link to="#" className='detailsbox_a' >
                 <div className="detailsbox_icons">
                   <img src={DeleviryBox} alt="Icon" />
                 </div>

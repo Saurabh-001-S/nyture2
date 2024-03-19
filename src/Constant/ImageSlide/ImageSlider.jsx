@@ -1,48 +1,77 @@
-import React, { useEffect, useState } from "react";
-import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { LazyImgLoad } from "../index";
+import React, { useState, useRef, useEffect } from 'react'
+import "./imageSlider.css";
+const delay = 2500;
 
-const ImageSlider = ({ images, descriptions }) => {
+const ImageSlider = ({ offerData }) => {
+   const [images, setImages] = useState(offerData.desktopImg);
+   let descriptions = offerData.descriptions;
+   const [index, setIndex] = useState(0);
+   const timeoutRef = useRef(null);
 
-   const [currentSlide, setCurrentSlide] = useState(0);
-   const nextSlide = () => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
-   };
-   const prevSlide = () => {
-      setCurrentSlide((prevSlide) => (prevSlide - 1 + images.length) % images.length);
-   };
    useEffect(() => {
-      const interval = setInterval(() => {
-         setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
-      }, 1500);
+      function handleResize() {
+         if (window.innerWidth <= 650) {
+            setImages(offerData.mobileImg);
+         } else {
+            setImages(offerData.desktopImg);
+         }
+      }
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => {
+         window.removeEventListener('resize', handleResize);
+      };
+   }, []);
+
+   function resetTimeout() {
+      if (timeoutRef.current) {
+         clearTimeout(timeoutRef.current);
+      }
+   }
+
+   useEffect(() => {
+      resetTimeout();
+      timeoutRef.current = setTimeout(
+         () =>
+            setIndex((prevIndex) =>
+               prevIndex === images.length - 1 ? 0 : prevIndex + 1
+            ),
+         delay
+      );
 
       return () => {
-         clearInterval(interval);
+         resetTimeout();
       };
-   }, [images.length]);
-
-
+   }, [index]);
 
    return (
-      <div className="home_img-slider">
-         <div className="home_slider-content">
-            <h1>{descriptions[currentSlide]}</h1>
-            <p>Your Sofa is where you let your guard down, put your feet up, and just relax</p>
-            <button>
-               <a href="/shop">
-                  SHOP NOW
-               </a>
-            </button>
+      <div className="slideshow">
+         <div className="slideshowSlider" style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
+            {images.map((col, index) => (
+               <div className="slide" key={index} style={{ backgroundImage: `url(${col})` }}>
+                  <div className="slider-content">
+                     <h1>{descriptions[index]}</h1>
+                     <p>Your Sofa is where you let your guard down, put your feet up, and just relax</p>
+                     <button >
+                        <a href="/shop">
+                           SHOP NOW
+                        </a>
+                     </button>
+                  </div>
+               </div>
+            ))}
          </div>
-         <div className="img_slide-button">
-            <MdOutlineKeyboardArrowLeft fontSize={40} onClick={prevSlide} />
-            <MdOutlineKeyboardArrowRight fontSize={40} onClick={nextSlide} />
-         </div>
-         <div className="home_slider-img animate">
-            <LazyImgLoad src={images[currentSlide]} CName={''} />
+
+         <div className="slideshowDots">
+            {images.map((_, idx) => (
+               <div key={idx} onClick={() => { setIndex(idx); }}
+                  className={`slideshowDot${index === idx ? " active" : ""}`}
+               ></div>
+            ))}
          </div>
       </div>
    );
-};
+}
 
-export default ImageSlider;
+export default ImageSlider
+

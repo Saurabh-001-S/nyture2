@@ -9,18 +9,13 @@
   justify-content: space-between;
   padding: 5px 0px 13px 5px;
   margin: 0 -13px;
-  border-bottom: 2px solid var(--primary-col);
+  border-bottom: 2px solid var(--secondry-accnet);
   cursor: pointer;
 }
 
-
 .Bottom_section-bg {
-  background: var(--bg-col);
-  border-bottom: 1px solid var(--secondry-col);
-}
-
-.Rbottom_sectiont:hover {
-  background: var(--bg-col);
+  background: var(--gray-400);
+  border-bottom: 1px solid var(--secondry-accent);
 }
 
 .section_text {
@@ -28,14 +23,14 @@
   flex-direction: column;
 }
 
-
 .text_primary {
-  color: var(--primary-col);
-  font-size: 16px;
+  color: var(--gray-400);
+  font-size: 1rem;
+  font-family: var(--main-font);
 }
 
 .text_secondary {
-  font-size: 14px;
+  font-size: 0.7rem;
 }
 
 .Rbottom_section svg {
@@ -43,8 +38,7 @@
 }
 
 .section_toggle {
-  padding: 1rem 0;
-  margin-left: 1rem;
+  padding: .5rem 0 1rem 0;
 }
 
 .section_toggle ul {
@@ -54,6 +48,9 @@
 }
 
 .section_toggle ul li {
+  width: 70%;
   font-size: 16px;
   line-height: 15px;
+  color: var(--third-accent);
+  font-family: var(--p-font);
 }

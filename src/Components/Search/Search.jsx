@@ -1,54 +1,17 @@
-import React, { useState } from 'react'
-import Data from "../../Data/ItemData";
+import React, { useEffect, useState } from 'react'
+import { recommendation } from "../../Data/ItemData";
 import { ShopItem } from '../../Constant';
 import { callNotification } from "../../Store/StoreCart/StoreCart";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Constant/Modal/Modal';
 
 const Search = () => {
 
-  const [head, setHead] = useState("Recommended")
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState(Data.recommendation);
+  const data = useSelector((state) => state.allCart.item);
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState(data);
   const dispatch = useDispatch();
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchQuery === '') {
-      dispatch(callNotification(4))
-      return;
-    }
-    else {
-      const categoryResults = Data[searchQuery];
-      if (categoryResults) {
-        const results = categoryResults;
-        setSearchResults(results);
-        setHead("Search Result");
-      } else {
-        setSearchResults([]);
-        setHead("Search Result");
-      }
-    }
-    setSearchQuery('');
-  };
 
-  const category = [
-    {
-      value: "singlesofa",
-      title: "Single sofa"
-    },
-    {
-      value: "sofa",
-      title: "Double sofa"
-    },
-    {
-      value: "stool",
-      title: "Stool"
-    },
-    {
-      value: "chair",
-      title: "Chair"
-    },
-  ]
   const [showModal, setShowModal] = useState(false);
   const [passItem, setPassItem] = useState(null)
 
@@ -57,10 +20,34 @@ const Search = () => {
     setPassItem(modalItem);
   };
 
+  const seachQuery = (e) => {
+    e.preventDefault();
+    if (query === '') {
+      dispatch(callNotification(4));
+      return;
+    } else {
+      showProducts();
+    }
+  }
+
+  const showProducts = () => {
+    results.filter((item) => {
+      return query.toLowerCase() === '' ?
+        item
+        : item.category.toLowerCase().includes(query)
+          ? item.category.toLowerCase().includes(query) === null
+          : item.name.toLowerCase().includes(query)
+    })
+  };
+  useEffect(() => {
+    showProducts();
+  }, [query])
+
   const closeModal = () => {
     setShowModal(false);
     setPassItem(null);
   };
+
   return (
     <div className='search'>
       <div className="search_modal">
@@ -70,41 +57,29 @@ const Search = () => {
       </div>
       <div className="search_box">
         <div className="search_bg">
-          <form onSubmit={handleSearch}>
-            <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
-            <button type="submit" className='search_btn' >Search</button>
+          <form onSubmit={seachQuery}>
+            <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+            <button type="submit">Search</button>
           </form>
-        </div>
-
-        <div className="search_category">
-          <h2>Related Categories</h2>
-          <ul className='search-text'>
-            {category.map((item, i) => (
-              <li key={i}>
-                <button key={item.value} className="search-text-btn"
-                  onClick={(e) => { setSearchQuery(item.value); }}
-                  style={{ margin: "1rem" }}>{item.title}
-                </button>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
       <div className="search_results">
         <div className='flex-col result_container'
-          style={{ width: `${searchResults.length === 0 ? "90vw" : ""}` }}>
-          <h2>{head}</h2>
-          {searchResults.length !== 0 ?
-            (
-              <ul className="result_ul">
-                {searchResults.map((item, i) => (
-                  <ShopItem key={i} item={item} callModal={callModal} />
+          style={{ width: `${results.length === 0 ? "90vw" : ""}` }}>
+          <h2>Search results</h2>
+          {
+            <ul className="result_ul">
+              {results
+                .filter((item) => {
+                  return query.toLowerCase() === '' ?
+                    item
+                    : item.name.toLowerCase().includes(query);
+                })
+                .map((item) => (
+                  <ShopItem key={item.id} item={item} callModal={callModal} />
                 ))}
-              </ul>
-            ) : (
-              <h3>Not Found!</h3>
-            )
+            </ul>
           }
         </div>
       </div>

@@ -2,40 +2,19 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
 import { AiOutlineInstagram } from "react-icons/ai";
-import { ImageSlider } from "../../Constant/index";
-import { ProductSlider } from '../../Constant/index';
+import { ImageSlider, ProductSlider } from '../../Constant/index';
 import { addToCart } from '../../Store/StoreCart/StoreCart';
 import { LazyImgLoad } from "../../Constant/index";
-import data from "../../Data/ItemData";
+import { recommendation, offer } from "../../Data/ItemData";
 import {
-    sofaBedio, Special_img, ISld1, ISld2, ISld3, ISld4, ISld5,
+    sofaBedio, Special_img,
     s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12,
-    LRoomMain, Bedroom1, Bedroom2, Bedroom3, Livingroom, Office,
-    D1, D2, D3, D4, D5, D6, D7
+    LRoomMain, Bedroom2, Livingroom, Office,
 } from "../../Data/Images/index";
 
 const Home = () => {
-    const [images, setImages] = useState([]);
-
-    useEffect(() => {
-        if (window.innerWidth >= 650) {
-            setImages([ISld1, ISld2, Bedroom1, ISld3, ISld4, ISld5, Bedroom3]);
-        } else {
-            setImages([D1, D2, D3, D4, D5, D6, D7]);
-        }
-    }, []);
-
-    let descriptions = [
-        "Introducing the Sunday Modular Leather Chaise - The Ultimate Relaxation Spot!",
-        "New Arrivals: Modular Leather Chaise - Redefining Comfort and Style!",
-        "Sunday Special: Leather Chaise - Luxurious Seating for Your Home!",
-        "Customize Your Space: Sunday Modular Chaise - Elegance and Versatility!",
-        "Crafted to Perfection: Sunday Modular Leather - Unmatched Quality!",
-        "Enhance Your Living Room: Modular Leather Chaise - A Must-Have!",
-        "Last Day Offer: Sunday Chaise - Comfort and Beauty Combined!"
-    ];
-
-    const items = useSelector((state) => state.allCart.item.recommendation);
+    // const items = useSelector((state) => state.allCart.item.recommendation);
+    const items = recommendation;
     const dispatch = useDispatch();
 
     const [playVideo, setPlayVideo] = useState(false)
@@ -50,27 +29,57 @@ const Home = () => {
         }
     }
 
+    const [perPageItem, setperPageItem] = useState('5')
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 950 && window.innerWidth <= 1150) {
+                setperPageItem(4);
+            }
+            else if (window.innerWidth >= 760) {
+                setperPageItem(3);
+            }
+            else if (window.innerWidth >= 470) {
+                setperPageItem(2);
+            }
+            else if (window.innerWidth <= 470) {
+                setperPageItem(1);
+            }
+        })
+    }, []);
+    // const offer = useSelector((state) => state.allCart.item.offer);
+    let desktopImg = [];
+    let mobileImg = [];
+    let descriptions = [];
+    offer.map((oData) => {
+        desktopImg.push(oData.src);
+        mobileImg.push(oData.srcResponsive);
+        descriptions.push(oData.title);
+    });
+    const offerData = {
+        desktopImg: desktopImg,
+        mobileImg: mobileImg,
+        descriptions: descriptions,
+    }
     return (
         <div className='home' id='home'>
 
             {/* -----------------------------IMG SLIDER SECTION-------------------------------------   */}
-            <ImageSlider images={images} descriptions={descriptions} />
+            <ImageSlider offerData={offerData} />
 
             {/* -----------------------------Work Display SECTION-------------------------------------   */}
-
             <div className="home_work flex-col">
                 <div className="home_work_heading">
                     <h4>Some Of Our Interiors That We</h4>
                     <h4>provide For You</h4>
                 </div>
-                <dib className="home_work_details">
+                <div className="home_work_details">
                     <div className="work_mainImg">
-                        <LazyImgLoad src={LRoomMain} CName={''} />
+                        <LazyImgLoad src={LRoomMain} CName={'none'} />
                     </div>
                     <div className="work_sidebar">
                         <div className="work_sb_box">
                             <div className="work_sb_box-img">
-                                <LazyImgLoad src={Livingroom} CName={''} />
+                                <LazyImgLoad src={Livingroom} CName={'none'} />
                             </div>
                             <div className="work_sb_box-details flex-col">
                                 <h2>Living Room</h2>
@@ -80,7 +89,7 @@ const Home = () => {
 
                         <div className="work_sb_box">
                             <div className="work_sb_box-img">
-                                <LazyImgLoad src={Bedroom2} CName={''} />
+                                <LazyImgLoad src={Bedroom2} CName={'none'} />
                             </div>
                             <div className="work_sb_box-details flex-col">
                                 <h2>Bed Room</h2>
@@ -90,7 +99,7 @@ const Home = () => {
 
                         <div className="work_sb_box">
                             <div className="work_sb_box-img">
-                                <LazyImgLoad src={Office} CName={''} />
+                                <LazyImgLoad src={Office} CName={'none'} />
                             </div>
                             <div className="work_sb_box-details flex-col">
                                 <h2>Office</h2>
@@ -98,7 +107,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                </dib>
+                </div>
             </div>
 
             {/* -----------------------------Vedio SECTION-------------------------------------   */}
@@ -108,8 +117,8 @@ const Home = () => {
                         <div className="vedio_left_text">
                             <p>Lether Chair</p>
                             <p>$145.23</p>
-                            <button type='button' className='btn'
-                                onClick={() => dispatch(addToCart(data.singlesofa[5]))}
+                            <button className="btn" type='button'
+                                onClick={() => dispatch(addToCart(recommendation[5]))}
                             >Add to Cart</button>
                         </div>
                     </div>
@@ -137,13 +146,13 @@ const Home = () => {
                     <a href='/buy' className='btn'>ShopNow</a>
                 </div>
                 <div className="special_item_img">
-                    <LazyImgLoad src={Special_img} CName={''} />
+                    <LazyImgLoad src={Special_img} CName={'none'} />
                 </div>
             </div >
 
             {/*  -----------------------------Recommendation SECTION-------------------------------------   */}
             <div className="home_recommendation">
-                <ProductSlider items={items} />
+                <ProductSlider items={items} perPageItem={perPageItem} />
             </div>
 
             {/*  -----------------------------Social SECTION-------------------------------------   */}
@@ -152,7 +161,7 @@ const Home = () => {
                     <div className="social_link">
                         <a className="social_overlay_link" >
                             <AiOutlineInstagram fontSize={28} />
-                            <p> Follow @nyture</p>
+                            <p> Follow <span>@nyture</span></p>
                         </a>
                     </div>
                     <div className="social_img_container" id="social">

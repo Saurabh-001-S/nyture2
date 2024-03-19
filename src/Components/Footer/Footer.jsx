@@ -10,10 +10,10 @@ const Footer = () => {
          <div className="footer_main">
             <h2 className='heading'>ABOUT US</h2>
             <div className="footer_social-links">
-               <Link to=""><FaFacebook fontSize={30} /></Link>
+               <Link to=""><FaFacebook fontSize={30} color='rgb(13, 71, 134)' /></Link>
                <Link to=""><BsTwitter fontSize={30} /></Link>
-               <Link to=""><AiFillYoutube fontSize={30} /></Link>
-               <Link to=""><AiOutlineInstagram fontSize={30} /></Link>
+               <Link to=""><AiFillYoutube fontSize={30} color='#e63946ff' /></Link>
+               <Link to="" ><AiOutlineInstagram fontSize={30} color='#e63946ff' /></Link>
             </div>
          </div>
          <div className="footer_section">

@@ -42,7 +42,7 @@ const MainContact = () => {
               <div className="section_text_primary"> {ques.question}</div>
               <div className="section_text_secondary"> {ques.des}</div>
             </div>
-            <button type='button' onClick={() => navigatetohelp(ques.id)} style={{ width: "50px" }}  >
+            <button type='button' onClick={() => navigatetohelp(ques.id)}  >
               <MdOutlineKeyboardArrowRight fontSize={30} />
             </button>
           </div>

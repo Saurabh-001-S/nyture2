@@ -2,7 +2,7 @@
    display: flex;
    flex-direction: column;
    gap: 0.5rem;
-   padding: 1.5rem 0.5rem;
+   padding: 2.5rem 0.5rem;
    margin: auto;
    width: 100%;
 }
@@ -10,6 +10,22 @@
 .search_box form {
    display: flex;
    gap: 0.5rem;
+}
+
+.search_box form input {
+   width: 90%;
+   font-size: 1rem;
+   padding: 0.4rem .4rem 0 .4rem;
+   border: none;
+   border-bottom: 2px solid var(--third-accent);
+}
+
+.search_box form button {
+   background-color: var(--gray-100);
+   color: var(--third-accent);
+   font-size: 18px;
+   box-shadow: 2px 2px 2px 0.5px var(--secondry-accent);
+   border-radius: 10px;
 }
 
 .search_box {
@@ -30,6 +46,7 @@
 .result_container h2 {
    padding: 0 0 0 1rem;
    font-size: 23px;
+   color: var(--secondry-accent);
 }
 
 .result_ul {
@@ -51,50 +68,6 @@
 
 .search_btn:hover {
    color: var(--dark-blue);
-}
-
-.search_category {
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
-   margin-top: 1rem;
-   align-items: flex-start;
-   justify-content: flex-start;
-}
-
-
-.search-text {
-   display: flex;
-   gap: 1rem;
-   justify-content: center;
-   align-items: center;
-   padding: 1rem;
-}
-
-.search-text li {
-   border-bottom: 2px solid;
-   padding: 0;
-   margin: 0;
-   border-radius: 10px;
-}
-
-.search-text-btn {
-   background-color: transparent;
-   color: var(--dark-blue);
-   padding: 0.5rem !important;
-   margin: 0 !important;
-}
-
-.search-text-btn:hover,
-.search-text li:hover {
-   border-color: var(--dark-blue);
-   color: var(--dark-blue);
-   cursor: pointer;
-}
-
-.shopItem {
-   width: 100/5%;
-   height: 100%;
 }
 
 @media screen and (max-width:1300px) {
@@ -158,10 +131,4 @@
    .search_btn {
       width: 50vw;
    }
-
-   .search-text {
-      width: 80vw;
-      flex-wrap: wrap;
-   }
-
 }

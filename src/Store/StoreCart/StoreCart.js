@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import productData from '../../Data/ItemData';
+import { products } from '../../Data/ItemData';
 
 const initialCart = {
   cart: [],
   buyItem: [],
   notification: [],
-  item: productData,
+  item: products,
   totalQuantity: 0,
   totalPrice: 0,
-  UserloginOrNot: "false"
+  UserloginOrNot: false,
+  itemDetails: null
 }
+
 const Message_props = [
   {
     id: 1,
@@ -160,12 +162,16 @@ const cartSlice = createSlice({
     },
     AuthTrueorNot: (state, action) => {
       state.UserloginOrNot = action.payload;
+    },
+    showItemDetails: (state, action) => {
+      state.itemDetails = action.payload;
     }
   },
 });
+
 export const {
   addToCart, increaseItemQuantity, decreaseItemQuantity, removeFromCart,
   clearCart, buyNow, getCartTotal, removeFromBuy, buyAllCartItem, clearBuy,
-  removeFromNotification, callNotification, AuthTrueorNot
+  removeFromNotification, callNotification, AuthTrueorNot, showItemDetails
 } = cartSlice.actions;
 export default cartSlice.reducer;

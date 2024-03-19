@@ -13,7 +13,7 @@
       height: 550px;
       gap: 1rem;
       margin: 0 auto;
-      width: 90%;
+      width: 95%;
 }
 
 .product-container::-webkit-scrollbar {
@@ -29,10 +29,11 @@
       cursor: pointer;
       top: 45%;
       z-index: 1;
-      border: 2px solid var(--primary-col);
+      border: 2px solid var(--third-text);
       font-size: 40px;
-      margin: 0 .5rem;
-      border-radius: 10px;
+      margin: 0 0.5rem;
+      border-radius: 50%;
+      color: var(--third-accent);
 }
 
 .pre-btn {
@@ -45,7 +46,7 @@
 
 .pre-btn,
 .nxt-btn {
-      opacity: 0.3;
+      opacity: 0.2;
 }
 
 .pre-btn:hover,
