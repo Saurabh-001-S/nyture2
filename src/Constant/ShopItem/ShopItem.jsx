@@ -6,12 +6,6 @@ import {
   showItemDetails,
 } from "../../Store/StoreCart/StoreCart";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  addToCart,
-  buyNow,
-  showItemDetails,
-} from "../../Store/StoreCart/StoreCart";
-import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineAlignRight } from "react-icons/ai";
 import { star, Emptystar } from "../../Data/Images/index";
 import "./shopitem.css";
