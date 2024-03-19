@@ -20,29 +20,16 @@ import s12 from "./s12.jpg";
 import s13 from "./s13.jpg";
 import star from "./star.png";
 import Emptystar from "./Emptystar.png";
-import ISld1 from "./ISlider1.jpg";
-import ISld2 from "./ISlider2.jpg";
-import ISld3 from "./ISlider3.jpg";
-import ISld4 from "./ISlider4.jpg";
-import ISld5 from "./ISlider5.jpg";
 import Bedroom1 from "./bedroom.jpg";
 import Bedroom2 from "./bedroom2.jpg";
 import Bedroom3 from "./bedroom3.jpg";
 import Livingroom from "./Livingroom.jpg";
 import Office from "./office.jpg";
 import LRoomMain from "./LRoomMain.jpg";
-import D1 from "./D1.jpg";
-import D2 from "./D2.jpg";
-import D3 from "./D3.jpg";
-import D4 from "./D4.jpg";
-import D5 from "./D5.jpg";
-import D6 from "./D6.jpg";
-import D7 from "./D7.jpg";
+import Warning from "./warning.png";
 
 export {
       Home1, Home2, Home3, Home4, Home5, sofaBedio, Special_img,
       s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13,
-      star, Emptystar, ISld1, ISld2, ISld3, ISld4, ISld5,
-      Bedroom1, Bedroom2, Bedroom3, Livingroom, Office, LRoomMain,
-      D1, D2, D3, D4, D5, D6, D7
+      star, Emptystar,Bedroom1, Bedroom2, Bedroom3, Livingroom, Office, LRoomMain,Warning
 }

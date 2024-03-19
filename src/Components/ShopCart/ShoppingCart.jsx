@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react'
-import { ShopCartItem } from '../../Constant/index';
-import { useDispatch, useSelector } from 'react-redux';
-import { clearCart, getCartTotal, buyAllCartItem } from "../../Store/StoreCart/StoreCart";
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { ShopCartItem } from "../../Constant/index";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  clearCart,
+  getCartTotal,
+  buyAllCartItem,
+} from "../../Store/StoreCart/StoreCart";
+import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
-
   const items = useSelector((state) => state.allCart.cart);
-  const { cart, totalQuantity, totalPrice } = useSelector((state) => state.allCart);
+  const { cart, totalQuantity, totalPrice } = useSelector(
+    (state) => state.allCart
+  );
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,26 +20,29 @@ const ShoppingCart = () => {
   }, [cart]);
 
   const confirm = () => {
-    if (window.confirm("Are you sure want to remove all items from shopping cart")) {
-      dispatch(clearCart(items))
+    if (
+      window.confirm("Are you sure want to remove all items from shopping cart")
+    ) {
+      dispatch(clearCart(items));
     }
-  }
+  };
   const amount = totalPrice;
   const isFreeDelivery = amount > 400;
+
   return (
-    <div className='shopCart'>
+    <div className="shopCart">
       <div className="shopCart_left">
         <div className="shopCart_heading">
           <h1>Shopping Cart</h1>
-          <button onClick={confirm}>Deselect all items</button>
+          {cart.length > 0 && (
+            <button onClick={confirm}>Deselect all items</button>
+          )}
           <p>Price</p>
         </div>
         <div className="shopCart_item">
-          {
-            items.map((item) => (
-              <ShopCartItem key={item.id} item={item} />
-            ))
-          }
+          {items.map((item) => (
+            <ShopCartItem key={item.id} item={item} />
+          ))}
           <div className="total_details-reverse">
             <h3>Subtotal ({totalQuantity} items):</h3>
             <p>$ {totalPrice}</p>
@@ -52,15 +60,13 @@ const ShoppingCart = () => {
         </div>
         <div className="shopCRButton">
           <button onClick={() => dispatch(buyAllCartItem(items))}>
-            <Link to='/buy'>Buy Now</Link>
+            <Link to={`${cart.length > 0 ? "/buy" : ""}`}>Buy Now</Link>
           </button>
         </div>
-        <p >EMI : {totalPrice > 500 ? 'Available' : 'Unavailable'}</p>
+        <p>EMI : {totalPrice > 500 ? "Available" : "Unavailable"}</p>
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
-export default ShoppingCart
-
-
+export default ShoppingCart;
